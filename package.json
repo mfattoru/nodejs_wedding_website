@@ -12,7 +12,6 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "forever": "^0.15.3",
     "papaparse": "^4.6.3",
     "tableify": "^1.1.0"
   }
