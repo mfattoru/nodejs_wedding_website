@@ -1,0 +1,19 @@
+{
+  "name": "wedding_website",
+  "version": "1.0.0",
+  "description": "Wedding website for mithele and rosa",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Michele Fattoruso",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "forever": "^0.15.3",
+    "papaparse": "^4.6.3",
+    "tableify": "^1.1.0"
+  }
+}
