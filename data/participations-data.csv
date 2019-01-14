@@ -1,15 +1,4 @@
-name,number,email
-ciccio,2,ciccio@gmail.com
-luca,1,luca45@GMAIL.COM
-pluto,3,pluto@gmail.com
-pluto,4,pluto2@gmail.com
-pluto,5,pluto3@gmail.com
-ffkf,4,fenwen@gmail.com
-kikk,3,kikko@gmail.com
-Michele Fattoruso,2,michele.fattoruso@gmail.com
-michele,1,1234@gmail.com
-amigd,2,amigo@gmail.com
-amigd,2,amigo2@gmail.com
-cicci,3,ciccib@gmail.com
-Rosa Rueda,4,rosaruedave@gmail.com
-,,
+name,numberAdults,numberChildren,email
+mik,2,3,mik@gmail.com
+pluto,2,7,pluto@gmail.com
+rik,0,0,rik@gmail.com

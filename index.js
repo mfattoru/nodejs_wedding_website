@@ -42,8 +42,10 @@ app.get('/services', function (req, res,next) {
 });
 
 app.post('/addAttendant', function(req, res) {
+    var {name,numberAdults,numberChildren,email,overwrite} = req.body;
+    {}
     // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
-    var foundDuplicates = participation.addParticipation(req.body.name,req.body.number,req.body.email,req.body.overwrite);
+    var foundDuplicates = participation.addParticipation(name,numberAdults,numberChildren,email,overwrite);
     if( foundDuplicates === true ){
         res.end("duplicates");
     }else{
@@ -55,8 +57,8 @@ app.post('/addAttendant', function(req, res) {
 app.get('/participationlist', function(req, res){
     console.log('partecipation list');
     var participations = participation.getAll();
-    var totalParticipants=participation.totalParticipants();
-    res.render('participationlist',{ table: tableify(participations), total:totalParticipants});
+    var total = participation.totalParticipants();
+    res.render('participationlist',{ table: tableify(participations), total:tableify(total) });
 });
 
 app.get('/downloadlist', function(req, res){

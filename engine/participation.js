@@ -28,26 +28,30 @@ var jsonToCsv = () => {
 }
 
 
-var addParticipation = (name,number,email,overwrite) =>{
+var addParticipation = (name,numberAdults,numberChildren,email,overwrite) =>{
     var duplicateFound = false;
     participations = fetchParticipations();
     participation = {
         name,
-        number,
+        numberAdults,
+        numberChildren,
         email
     };
     console.log('participation called');
     if(overwrite === 'true'){
         //we update the participation, if the email address already exists
-        var participations = participations.filter( (participation) => {
+        var newParticipations = participations.filter( (participation) => {
             return participation.email !== email;
         })
 
-        participations.push(participation);
-        saveParticipations(participations);
+        if(newParticipations.length !== participations.length){
+            duplicateFound = true;
+        }
+        newParticipations.push(participation);
+        saveParticipations(newParticipations);
         console.log('overwriting  called');
 
-    }else{
+    }else{  
         // will store the participations that are duplicate of our new participation
         var duplicateParticipations = participations.filter( (participation) => {
             return participation.email === email; //returns true if the titles are equal
@@ -115,17 +119,27 @@ var removeParticipation = (email) =>{
 var logParticipation = (participation) =>{
     console.log('-----------');
     console.log(`Name: ${participation.name}`);
-    console.log(`Number of Patricipants: ${participation.number}`);
+    console.log(`Number of Adult Patricipants: ${participation.numberAdults}`);
+    console.log(`Number of Children Patricipants: ${participation.numberChildren}`);
     console.log(`email: ${participation.email}`);
 }
 
 var totalParticipants = () => {
     participations = fetchParticipations();
-    var total=0;
-    for (var i = 0; i < participations.length; i++) {
-        total += parseInt(participations[i].number,10);
-    }
-    return total;
+
+    var totalAdults = participations.reduce( (total,curr) => { 
+        return total + parseInt(curr.numberAdults) ;
+    },0);
+
+    var totalChildren = participations.reduce( (total,curr) => { 
+        return total + parseInt(curr.numberChildren) 
+    },0);
+
+    return { 
+        "Number of Adults": totalAdults,
+        "Number of Children":totalChildren,
+        "Total Guests":totalAdults + totalChildren
+    };
 }
 
 

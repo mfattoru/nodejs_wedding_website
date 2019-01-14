@@ -269,32 +269,42 @@
 				<div class="col-md-10 col-md-offset-1">
 					<form class="form-inline">
 						<!--<form action="http://localhost:3000/addAttendant" method="post" class="form-inline">-->
-						<div class="col-md-4 col-sm-4">
+						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="name" class="sr-only">Name</label>
-								<input type="name" class="form-control" id="name" name="name" placeholder="Name">
+								<input type="name" class="form-control" id="name" name="name" placeholder="Name" required>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-4">
+						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="participants" class="sr-only">Number</label>
-								<input type="number" class="form-control" id="number" placeholder="Number of Participants">
+								<input type="number" class="form-control" id="numberAdults" placeholder="Number of Adults" min="0" required>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-4">
+						<div class="col-md-3 col-sm-3">
+							<div class="form-group">
+								<label for="participants" class="sr-only">Number</label>
+								<input type="number" class="form-control" id="numberChildren" placeholder="Number of Children" min="0" required>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="Email">
+								<input type="email" class="form-control" id="email" placeholder="Email" required>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-4 feature-center">
-							<button type="submit" id="submit" class="btn btn-default btn-block">I am Attending</button>
+						<div class="col-md-6 col-sm-6">
+							<button type="submit" id="submitAttending" class="btn btn-default btn-block">I am Attending</button>
+						</div>
+						<div class="col-md-6 col-sm-6">
+							<button type="submit" id="submitNotAttending" class="btn btn-default btn-block">I am not Attending</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
