@@ -3,7 +3,14 @@ const app = express();
 const gallery = require('./engine/galleryCreator');
 const participation = require('./engine/participation')
 const tableify = require('tableify');
+// const i18n = require('./engine/i18n')
+// const cookieParser = require('cookie-parser');
+// const i18n = require('i18n-2');
+const PORT = 50122;
 
+const i18n = require('i18next');
+const i18nFsBackend = require('i18next-node-fs-backend');
+const i18nMiddleware = require('i18next-express-middleware');
 
 var bodyParser = require("body-parser");
 
@@ -14,14 +21,43 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+// app.use(i18n);
+
 app.use(function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
    next();
 });
 
+
+i18n
+    .use(i18nFsBackend)
+    .use(i18nMiddleware.LanguageDetector)
+    .init({
+        backend: {
+        loadPath: __dirname + '/locales/{{lng}}.json',
+        // addPath: __dirname + '/locales/{{lng}}.missing.json'
+        addPath: __dirname + '/locales/{{lng}}.json'
+        },
+        fallbackLng: 'en',
+        lowerCaseLng: true,
+        preload: ['en', 'es', 'it'],
+        saveMissing: true,
+        keySeparator: false
+    });
+
+app.use(i18nMiddleware.handle(i18n, {
+    removeLngFromUrl: false
+}));
+
+app.get('/test', (req, res) => {
+    console.log( __dirname + '/locales/{{lng}}.json');
+    res.send(req.t('home.title'));
+});
+
 // app.get('/index.php', function (req, res,next) {  //to run attached to the apache server
 app.get('/', function (req, res,next) {
+    // console.log(req.__('Hello'));
     res.render('index',{ gallery: gallery.galleryCreator('public/images/gallery') });
 });
 
@@ -43,7 +79,6 @@ app.get('/services', function (req, res,next) {
 
 app.post('/addAttendant', function(req, res) {
     var {name,numberAdults,numberChildren,email,overwrite} = req.body;
-    {}
     // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
     var foundDuplicates = participation.addParticipation(name,numberAdults,numberChildren,email,overwrite);
     if( foundDuplicates === true ){
@@ -66,7 +101,7 @@ app.get('/downloadlist', function(req, res){
     // res.send(tableify());
 });
 
-//app.listen(50122, function () {  //for the configuration on the website
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!')
+app.listen(PORT, function () {  //for the configuration on the website
+// app.listen(3000, function () {
+    console.log(`Example app listening on port ${PORT}!`)
 });

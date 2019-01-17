@@ -1,6 +1,9 @@
 // <!-- Ajax post request to send the participation informations-->
-	
+// const HOST = "http://micheleandrosa.wedding"  //when deployed
+const HOST = "http://localhost:50122"      //on local test
+
 $(document).ready(function(){
+
     var user,pass;
     var count=0;
     $("#submitAttending").click(function(e){
@@ -15,7 +18,7 @@ $(document).ready(function(){
             // avoid the refresh of the page on submit
             e.preventDefault();
 
-            $.post("http://localhost:3000/addAttendant",{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
+            $.post(`${HOST}/addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
                 if(data==='done'){
                     $("#submitAttending").html("Participation saved"); 
                     $("#submitAttending").attr("disabled", true);
@@ -65,7 +68,7 @@ $(document).ready(function(){
             // avoid the refresh of the page on submit
             e.preventDefault();
 
-            $.post("http://localhost:3000/addAttendant",{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
+            $.post(`${HOST}/addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
                 if(data==='done'){
                     $("#submitNotAttending").html("Participation saved"); 
                     $("#submitNotAttending").attr("disabled", true);

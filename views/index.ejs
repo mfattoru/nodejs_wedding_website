@@ -38,6 +38,7 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+	
 
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
@@ -86,23 +87,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="/">Wedding<strong>.</strong></a></div>
+					<div id="fh5co-logo"><a href="/"><%= t('Wedding') %><strong>.</strong></a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
-						<li class="active"><a href="/">Home</a></li>
-						<li><a href="about">Story</a></li>
+						<li class="active"><a href="/"><%= t('Home') %></a></li>
+						<li><a href="about"><%= t('Story') %></a></li>
 						<li class="has-dropdown">
-							<a href="services">Services</a>
+							<a href="services"><%= t('Services') %></a>
 							<ul class="dropdown">
-								<li><a href="#">Web Design</a></li>
-								<li><a href="#">eCommerce</a></li>
-								<li><a href="#">Branding</a></li>
-								<li><a href="#">API</a></li>
+								<li><a href="#"><%= t('Web Design') %></a></li>
+								<li><a href="#"><%= t('eCommerce') %></a></li>
+								<li><a href="#"><%= t('Branding') %></a></li>
+								<li><a href="#"><%= t('API') %></a></li>
 							</ul>
 						</li>
 						<li class="has-dropdown">
-							<a href="gallery">Gallery</a>
+							<a href="gallery"><%= t('Gallery') %></a>
 							<!-- <ul class="dropdown">
 								<li><a href="#">HTML5</a></li>
 								<li><a href="#">CSS3</a></li>
@@ -110,7 +111,7 @@
 								<li><a href="#">jQuery</a></li>
 							</ul> -->
 						</li>
-						<li><a href="contact">Contact</a></li>
+						<li><a href="contact"><%= t('Contact') %></a></li>
 					</ul>
 				</div>
 			</div>
@@ -127,7 +128,8 @@
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Michele &amp; Rosa</h1>
-							<h2>We Are Getting Married</h2>
+							<h2><%= t('We Are Getting Married') %></h2>
+							<h2><%= t('home.We Are Getting Married') %></h2>
 							<div class="simply-countdown simply-countdown-one"></div>
 							<p><a href="https://calendar.google.com/calendar/r/eventedit?text=Wedding+Michele+%26+Rosa&dates=20190907T210000Z/20190908T060000Z&details=For+details,+link+here:+https://example.com/tickets-43251101208&location=Barichara" target="_blank" class="btn btn-default btn-sm">Save the date</a></p>
 						</div>
@@ -141,9 +143,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Hello!</h2>
-					<h3>August 24th, 2019 Barichara, Colombia</h3>
-					<p>We invited you to celebrate our wedding</p>
+					<h2><%= t('Hello!') %></h2>
+					<h3><%= t('August 24th, 2019 Barichara, Colombia') %></h3>
+					<p><%= t('We invited you to celebrate our wedding') %></p>
 				</div>
 			</div>
 			<div class="couple-wrap animate-box">
@@ -152,8 +154,8 @@
 						<img src="images/groom.jpg" alt="groom" class="img-responsive">
 					</div>
 					<div class="desc-groom">
-						<h3>Michele Fattoruso</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<h3><%= t('Michele Fattoruso') %></h3>
+						<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove') %></p>
 					</div>
 				</div>
 				<p class="heart text-center"><i class="icon-heart2"></i></p>
@@ -162,8 +164,8 @@
 						<img src="images/bride.jpg" alt="groom" class="img-responsive">
 					</div>
 					<div class="desc-bride">
-						<h3>Rosa Rueda</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<h3><%= t('Rosa Rueda') %></h3>
+						<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove') %></p>
 					</div>
 				</div>
 			</div>
@@ -176,8 +178,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<span>Our Special Events</span>
-					<h2>Wedding Events</h2>
+					<span><%= t('Our Special Events') %></span>
+					<h2><%= t('Wedding Events') %></h2>
 				</div>
 			</div>
 			<div class="row">
@@ -186,7 +188,7 @@
 						<div class="col-md-10 col-md-offset-1">
 							<div class="col-md-6 col-sm-6 text-center">
 								<div class="event-wrap animate-box">
-									<h3>Main Ceremony</h3>
+									<h3><%= t('Main Ceremony') %></h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
 										<span>4:00 PM</span>
@@ -194,15 +196,15 @@
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
-										<span>Saturday 24</span>
-										<span>August, 2019</span>
+										<span><%= t('Saturday 24') %></span>
+										<span><%= t('August, 2019') %></span>
 									</div>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+									<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.') %></p>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6 text-center">
 								<div class="event-wrap animate-box">
-									<h3>Wedding Party</h3>
+									<h3><%= t('Wedding Party') %></h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
 										<span>7:00 PM</span>
@@ -210,10 +212,10 @@
 									</div>
 									<div class="event-col">
 										<i class="icon-calendar"></i>
-										<span>Saturday 24</span>
-										<span>August, 2019</span>
+										<span><%= t('Saturday 24') %></span>
+										<span><%= t('August, 2019') %></span>
 									</div>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+									<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.') %></p>
 								</div>
 							</div>
 						</div>
@@ -281,9 +283,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<span>Our Memories</span>
-					<h2>Wedding Gallery</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					<span><%= t('Our Memories') %></span>
+					<h2><%= t('Wedding Gallery') %></h2>
+					<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.') %></p>
 				</div>
 			</div>
 			<div class="row row-bottom-padded-md">
@@ -438,8 +440,8 @@
 			<div class="row">
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<span>Best Wishes</span>
-						<h2>Friends Wishes</h2>
+						<span><%= t('Best Wishes') %></span>
+						<h2><%= t('Friends Wishes') %></h2>
 					</div>
 				</div>
 				<div class="row">
@@ -550,8 +552,8 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Are You Attending?</h2>
-					<p>Please Fill-up the form to notify you that you're attending. Thanks.</p>
+					<h2><%= t('Are You Attending?') %></h2>
+					<p><%= t('Please Fill-up the form to notify you that you are attending. Thanks.') %></p>
 				</div>
 			</div>
 			<div class="row animate-box">
@@ -561,32 +563,32 @@
 						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="name" class="sr-only">Name</label>
-								<input type="name" class="form-control" id="name" name="name" placeholder="Name" required>
+								<input type="name" class="form-control" id="name" name="name" placeholder="<%= t('Name') %>" required>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="participants" class="sr-only">Number</label>
-								<input type="number" class="form-control" id="numberAdults" placeholder="Number of Adults" min="0" required>
+								<input type="number" class="form-control" id="numberAdults" placeholder="<%= t('Number of Adults') %>" min="0" required>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="participants" class="sr-only">Number</label>
-								<input type="number" class="form-control" id="numberChildren" placeholder="Number of Children" min="0" required>
+								<input type="number" class="form-control" id="numberChildren" placeholder="<%= t('Number of Children') %>" min="0" required>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="Email" required>
+								<input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
-							<button type="submit" id="submitAttending" class="btn btn-default btn-block">I am Attending</button>
+							<button type="submit" id="submitAttending" class="btn btn-default btn-block"><%= t('I am Attending') %></button>
 						</div>
 						<div class="col-md-6 col-sm-6">
-							<button type="submit" id="submitNotAttending" class="btn btn-default btn-block">I am not Attending</button>
+							<button type="submit" id="submitNotAttending" class="btn btn-default btn-block"><%= t('I am not Attending') %></button>
 						</div>
 					</form>
 				</div>
