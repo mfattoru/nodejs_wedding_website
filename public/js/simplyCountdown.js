@@ -113,6 +113,40 @@
      * @param elt
      * @param args (parameters)
      */
+
+    // TODO: [Deprecation] Synchronous XMLHttpRequest on the main thread is deprecated 
+    // because of its detrimental effects to the end user's experience. For more help, 
+    // check https://xhr.spec.whatwg.org/.
+
+    function httpGet(theUrl)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+        xmlHttp.send( null );
+        return xmlHttp.responseText;
+    }
+
+    var jsonData = httpGet('minutes');
+
+
+    // async function getJson() {
+
+    //     const response = await fetch('minutes', {});
+    //     const json = await response.json();
+    //     console.log(json);
+    //     return json;
+    // }
+
+    // function getJson(jsonData){
+    //     return jsonData;
+    // }
+
+    // var jsonData2 = getJson(fetch('minutes', {}));
+    // jsonData2.then(function(result){
+    //     document.innerHTML
+    // })
+    // console.log("data2 : "+jsonData2);
+
     simplyCountdown = function (elt, args) {
         var parameters = extend({
                 year: 2019,
@@ -121,13 +155,14 @@
                 hours: 0,
                 minutes: 0,
                 seconds: 0,
-                words: {
-                    days: 'day',
-                    hours: 'hour',
-                    minutes: 'minute',
-                    seconds: 'second',
-                    pluralLetter: 's'
-                },
+                // words: {
+                //     days: 'day',
+                //     hours: 'hour',
+                //     minutes: 'minute',
+                //     seconds: 'second',
+                //     pluralLetter: 's'
+                // },
+                words: JSON.parse(jsonData),
                 plural: true,
                 inline: false,
                 enableUtc: true,
@@ -281,5 +316,13 @@ if (window.jQuery) {
         $.fn.simplyCountdown = function (options) {
             return simplyCountdownify(this.selector, options);
         };
+
+        // $.getJSON('minutes', function(data) {
+        //     jsonData = JSON.parse(data);
+        //     document.getElementsByClassName("simply-days-section").getElementsByClassName("simply-word").innerHTML = data.days;
+        //     document.getElementsByClassName("simply-hours-section").getElementsByClassName("simply-word").innerHTML = data.hours;
+        //     document.getElementsByClassName("simply-minutes-section").getElementsByClassName("simply-word").innerHTML = data.minutes;
+        //     document.getElementsByClassName("simply-seconds-section").getElementsByClassName("simply-word").innerHTML = data.seconds;
+        // });
     }(jQuery, simplyCountdown));
 }

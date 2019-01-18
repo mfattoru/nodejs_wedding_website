@@ -1,8 +1,15 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const gallery = require('./engine/galleryCreator');
 const participation = require('./engine/participation')
+console.log("PWD: "+JSON.stringify(process.env.MAIL_PWD));
+const sendMail = require('./engine/sendMail')
+
 const tableify = require('tableify');
+const i18nextXHRBackend = require('i18next-xhr-backend');
+const fs = require('fs');
+
 // const i18n = require('./engine/i18n')
 // const cookieParser = require('cookie-parser');
 // const i18n = require('i18n-2');
@@ -31,13 +38,14 @@ app.use(function(req, res, next) {
 
 
 i18n
-    .use(i18nFsBackend)
-    .use(i18nMiddleware.LanguageDetector)
+    .use(i18nextXHRBackend)     //Allows to use i18next on client through JQuery
+    .use(i18nFsBackend)         //Used to interface i18next with express
+    .use(i18nMiddleware.LanguageDetector)       //Used to detect the language
     .init({
         backend: {
-        loadPath: __dirname + '/locales/{{lng}}.json',
-        // addPath: __dirname + '/locales/{{lng}}.missing.json'
-        addPath: __dirname + '/locales/{{lng}}.json'
+            loadPath: __dirname + '/locales/{{lng}}.json',
+            // addPath: __dirname + '/locales/{{lng}}.missing.json'
+            addPath: __dirname + '/locales/{{lng}}.json'
         },
         fallbackLng: 'en',
         lowerCaseLng: true,
@@ -50,19 +58,36 @@ app.use(i18nMiddleware.handle(i18n, {
     removeLngFromUrl: false
 }));
 
+
+app.get('/locales/:lang', (req, res) => {
+    var lang = req.params.lang;
+    var file = fs.readFileSync(`locales/${lang}.json`);
+    res.send(file);
+});
+
+app.get('/minutes', (req, res) => {
+    res.send({
+        days: req.t('day'),
+        hours: req.t('hour'),
+        minutes: req.t('minute'),
+        seconds: req.t('second'),
+        pluralLetter: req.t('pluralLetter')
+    });
+});
+
 app.get('/test', (req, res) => {
-    console.log( __dirname + '/locales/{{lng}}.json');
-    res.send(req.t('home.title'));
+    res.render('test');
+    // res.send(req.t('Wedding'));
 });
 
 // app.get('/index.php', function (req, res,next) {  //to run attached to the apache server
 app.get('/', function (req, res,next) {
     // console.log(req.__('Hello'));
-    res.render('index',{ gallery: gallery.galleryCreator('public/images/gallery') });
+    res.render('index',{ gallery: gallery.galleryCreator('public/images/gallery',req.t) });
 });
 
 app.get('/gallery', function (req, res,next) {
-    res.render('gallery',{ gallery: gallery.galleryCreator('public/images/gallery') });
+    res.render('gallery',{ gallery: gallery.galleryCreator('public/images/gallery',req.t) });
 });
 
 app.get('/about', function (req, res,next) {
@@ -80,13 +105,29 @@ app.get('/services', function (req, res,next) {
 app.post('/addAttendant', function(req, res) {
     var {name,numberAdults,numberChildren,email,overwrite} = req.body;
     // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
-    var foundDuplicates = participation.addParticipation(name,numberAdults,numberChildren,email,overwrite);
-    if( foundDuplicates === true ){
-        res.end("duplicates");
-    }else{
-        res.end("done");
+    try{
+        var foundDuplicates = participation.addParticipation(name,numberAdults,numberChildren,email,overwrite);
+        
+        if( foundDuplicates === true ){
+            res.send({status:"duplicates",text:req.t("Participation updated")});
+        }else{
+            res.send({status:"done",text:req.t("Participation saved")})
+        }
+    }catch(err){
+        res.send({status:"error",text:req.t("Participation NOT saved, try again!")})
     }
-    // res.send('You sent the name "' + req.body.name + '".');
+});
+
+app.post('/sendMail', function(req, res) {
+    // var {fname,lname,subject,message,email} = req.body;
+    // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
+    // console.log(JSON.stringify(req.body));
+    //try{
+        sendMail.send(req.body)
+        res.send({status:"ok",text:req.t("Email Successfully Sent")});
+    // }catch(err){
+    //     res.send({status:"error",text:req.t("An error occurred while sending the email, please try again!")})
+    // }
 });
 
 app.get('/participationlist', function(req, res){

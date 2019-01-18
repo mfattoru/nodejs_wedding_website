@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Wedding &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title><%= t('Michele & Rosa Wedding') %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -84,41 +84,42 @@
 	<div class="fh5co-loader"></div>
 
 	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="/">Wedding<strong>.</strong></a></div>
+		<nav class="fh5co-nav" role="navigation">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/"><%= t('Wedding') %><strong>.</strong></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="/"><%= t('Home') %></a></li>
+							<li><a href="about"><%= t('Story') %></a></li>
+							<li class="has-dropdown">
+								<a href="services"><%= t('Services') %></a>
+								<ul class="dropdown">
+									<li><a href="#"><%= t('Web Design') %></a></li>
+									<li><a href="#"><%= t('eCommerce') %></a></li>
+									<li><a href="#"><%= t('Branding') %></a></li>
+									<li><a href="#"><%= t('API') %></a></li>
+								</ul>
+							</li>
+							<li class="has-dropdown">
+								<a href="gallery"><%= t('Gallery') %></a>
+								<!-- <ul class="dropdown">
+									<li><a href="#">HTML5</a></li>
+									<li><a href="#">CSS3</a></li>
+									<li><a href="#">Sass</a></li>
+									<li><a href="#">jQuery</a></li>
+								</ul> -->
+							</li>
+							<li><a href="contact"><%= t('Contact') %></a></li>
+						</ul>
+					</div>
 				</div>
-				<div class="col-xs-10 text-right menu-1">
-					<ul>
-						<li class="active"><a href="/">Home</a></li>
-						<li><a href="about">Story</a></li>
-						<li class="has-dropdown">
-							<a href="services">Services</a>
-							<ul class="dropdown">
-								<li><a href="#">Web Design</a></li>
-								<li><a href="#">eCommerce</a></li>
-								<li><a href="#">Branding</a></li>
-								<li><a href="#">API</a></li>
-							</ul>
-						</li>
-						<li class="has-dropdown">
-							<a href="gallery">Gallery</a>
-							<!-- <ul class="dropdown">
-								<li><a href="#">HTML5</a></li>
-								<li><a href="#">CSS3</a></li>
-								<li><a href="#">Sass</a></li>
-								<li><a href="#">jQuery</a></li>
-							</ul> -->
-						</li>
-						<li><a href="contact">Contact</a></li>
-					</ul>
-				</div>
+	
 			</div>
-
-		</div>
-	</nav>
+		</nav>
+	
 
     <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/beach.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
@@ -128,7 +129,7 @@
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Michele &amp; Rosa</h1>
-							<h2>We Are Getting Married</h2>
+							<h2><%= t('We Are Getting Married') %></h2>
 						</div>
 					</div>
 				</div>
@@ -149,7 +150,7 @@
 
                 <form class="form-inline">
                     <div class="col-md-4 col-sm-4 feature-center">
-                        <button type="submit" id="submit" class="btn btn-default btn-block" formaction="http://micheleandrosa.wedding/downloadList">Download Excel</button>
+                        <button type="submit" id="submit" class="btn btn-default btn-block" formaction="http://micheleandrosa.wedding/downloadList"><%= t('Download Excel') %></button>
                     </div>
                 </form>
                     

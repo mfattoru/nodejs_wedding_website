@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Wedding &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title><%= t('Michele & Rosa Wedding') %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -44,6 +44,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 	<link rel="shortcut icon" href="images/heart.png">
 
+	<!-- Load the i18n translation module on the local client -->
+	<!-- <script src="https://unpkg.com/i18next/i18next.js"></script>
+	<script src="https://unpkg.com/i18next-xhr-backend/i18nextXHRBackend.js"></script>
+	<script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.js"></script>
+	<script src="js/i18next-client.js"></script> -->
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
@@ -73,8 +78,6 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-
-
 	<meta name="google-site-verification" content="nFzXpIJMp_gOZTNzEh2MRRe52bLX66v6mgoFzL0vS_8" />
 
 	</head>
@@ -94,15 +97,6 @@
 						<li class="active"><a href="/"><%= t('Home') %></a></li>
 						<li><a href="about"><%= t('Story') %></a></li>
 						<li class="has-dropdown">
-							<a href="services"><%= t('Services') %></a>
-							<ul class="dropdown">
-								<li><a href="#"><%= t('Web Design') %></a></li>
-								<li><a href="#"><%= t('eCommerce') %></a></li>
-								<li><a href="#"><%= t('Branding') %></a></li>
-								<li><a href="#"><%= t('API') %></a></li>
-							</ul>
-						</li>
-						<li class="has-dropdown">
 							<a href="gallery"><%= t('Gallery') %></a>
 							<!-- <ul class="dropdown">
 								<li><a href="#">HTML5</a></li>
@@ -110,6 +104,14 @@
 								<li><a href="#">Sass</a></li>
 								<li><a href="#">jQuery</a></li>
 							</ul> -->
+						</li>
+						<li class="has-dropdown">
+							<a href="services"><%= t('Languages') %></a>
+							<ul class="dropdown">
+								<li><a href="#" class="lang-select"><%= t('English') %></a></li>
+								<li><a href="#" class="lang-select"><%= t('Italian') %></a></li>
+								<li><a href="#" class="lang-select"><%= t('Spanish') %></a></li>
+							</ul>
 						</li>
 						<li><a href="contact"><%= t('Contact') %></a></li>
 					</ul>
@@ -129,9 +131,8 @@
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Michele &amp; Rosa</h1>
 							<h2><%= t('We Are Getting Married') %></h2>
-							<h2><%= t('home.We Are Getting Married') %></h2>
 							<div class="simply-countdown simply-countdown-one"></div>
-							<p><a href="https://calendar.google.com/calendar/r/eventedit?text=Wedding+Michele+%26+Rosa&dates=20190907T210000Z/20190908T060000Z&details=For+details,+link+here:+https://example.com/tickets-43251101208&location=Barichara" target="_blank" class="btn btn-default btn-sm">Save the date</a></p>
+							<p><a href="https://calendar.google.com/calendar/r/eventedit?text=Wedding+Michele+%26+Rosa&dates=20190907T210000Z/20190908T060000Z&details=For+details,+link+here:+https://example.com/tickets-43251101208&location=Barichara" target="_blank" class="btn btn-default btn-sm"><%= t('Save the date') %></a></p>
 						</div>
 					</div>
 				</div>
@@ -677,8 +678,9 @@
         month: d.getMonth() + 1,
         day: d.getDate(),
         enableUtc: false
-    });
-</script>
+	});
 
+
+	</script>
 	</body>
 </html>

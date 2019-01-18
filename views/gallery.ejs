@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Wedding &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title><%= t('Michele & Rosa Wedding') %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -75,41 +75,42 @@
 	<div class="fh5co-loader"></div>
 
 	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="/">Wedding<strong>.</strong></a></div>
+		<nav class="fh5co-nav" role="navigation">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/"><%= t('Wedding') %><strong>.</strong></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href="/"><%= t('Home') %></a></li>
+							<li><a href="about"><%= t('Story') %></a></li>
+							<li class="has-dropdown">
+								<a href="services"><%= t('Services') %></a>
+								<ul class="dropdown">
+									<li><a href="#"><%= t('Web Design') %></a></li>
+									<li><a href="#"><%= t('eCommerce') %></a></li>
+									<li><a href="#"><%= t('Branding') %></a></li>
+									<li><a href="#"><%= t('API') %></a></li>
+								</ul>
+							</li>
+							<li class="has-dropdown active">
+								<a href="gallery"><%= t('Gallery') %></a>
+								<!-- <ul class="dropdown">
+									<li><a href="#">HTML5</a></li>
+									<li><a href="#">CSS3</a></li>
+									<li><a href="#">Sass</a></li>
+									<li><a href="#">jQuery</a></li>
+								</ul> -->
+							</li>
+							<li><a href="contact"><%= t('Contact') %></a></li>
+						</ul>
+					</div>
 				</div>
-				<div class="col-xs-10 text-right menu-1">
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="about">Story</a></li>
-						<li class="has-dropdown">
-							<a href="services">Services</a>
-							<ul class="dropdown">
-								<li><a href="#">Web Design</a></li>
-								<li><a href="#">eCommerce</a></li>
-								<li><a href="#">Branding</a></li>
-								<li><a href="#">API</a></li>
-							</ul>
-						</li>
-						<li class="has-dropdown active">
-							<a href="gallery">Gallery</a>
-							<!-- <ul class="dropdown">
-								<li><a href="#">HTML5</a></li>
-								<li><a href="#">CSS3</a></li>
-								<li><a href="#">Sass</a></li>
-								<li><a href="#">jQuery</a></li>
-							</ul> -->
-						</li>
-						<li><a href="contact">Contact</a></li>
-					</ul>
-				</div>
+	
 			</div>
-
-		</div>
-	</nav>
+		</nav>
+	
 
 	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/img_bg_1.jpg);">
 		<div class="overlay"></div>
@@ -118,7 +119,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>Gallery</h1>
+							<h1><%= t('Gallery') %></h1>
 							<h2>Free html5 templates Made by <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></h2>
 						</div>
 					</div>
@@ -131,9 +132,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Hello!</h2>
-					<h3>September 7th, 2019 Barichara, Colombia</h3>
-					<p>We invited you to celebrate our wedding</p>
+					<h2><%= t('Hello!') %></h2>
+					<h3><%= t('August 24th, 2019 Barichara, Colombia') %></h3>
+					<p><%= t('We invited you to celebrate our wedding') %></p>
 				</div>
 			</div>
 			<div class="couple-wrap animate-box">
@@ -143,7 +144,7 @@
 					</div>
 					<div class="desc-groom">
 						<h3>Michele Fattoruso</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove') %></p>
 					</div>
 				</div>
 				<p class="heart text-center"><i class="icon-heart2"></i></p>
@@ -153,7 +154,7 @@
 					</div>
 					<div class="desc-bride">
 						<h3>Rosa Rueda</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove') %></p>
 					</div>
 				</div>
 			</div>
@@ -164,9 +165,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<span>Our Memories</span>
-					<h2>Wedding Gallery</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					<span><%= t('Our Memories') %></span>
+					<h2><%= t('Wedding Gallery') %></h2>
+					<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.') %></p>
 				</div>
 			</div>
 			<div class="row row-bottom-padded-md">
@@ -261,8 +262,8 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Are You Attending?</h2>
-					<p>Please Fill-up the form to notify you that you're attending. Thanks.</p>
+					<h2><%= t('Are You Attending?') %></h2>
+					<p><%= t('Please Fill-up the form to notify you that you are attending. Thanks.') %></p>
 				</div>
 			</div>
 			<div class="row animate-box">
@@ -272,32 +273,32 @@
 						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="name" class="sr-only">Name</label>
-								<input type="name" class="form-control" id="name" name="name" placeholder="Name" required>
+								<input type="name" class="form-control" id="name" name="name" placeholder="<%= t('Name') %>" required>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="participants" class="sr-only">Number</label>
-								<input type="number" class="form-control" id="numberAdults" placeholder="Number of Adults" min="0" required>
+								<input type="number" class="form-control" id="numberAdults" placeholder="<%= t('Number of Adults') %>" min="0" required>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="participants" class="sr-only">Number</label>
-								<input type="number" class="form-control" id="numberChildren" placeholder="Number of Children" min="0" required>
+								<input type="number" class="form-control" id="numberChildren" placeholder="<%= t('Number of Children') %>" min="0" required>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3">
 							<div class="form-group">
 								<label for="email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="Email" required>
+								<input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
-							<button type="submit" id="submitAttending" class="btn btn-default btn-block">I am Attending</button>
+							<button type="submit" id="submitAttending" class="btn btn-default btn-block"><%= t('I am Attending') %></button>
 						</div>
 						<div class="col-md-6 col-sm-6">
-							<button type="submit" id="submitNotAttending" class="btn btn-default btn-block">I am not Attending</button>
+							<button type="submit" id="submitNotAttending" class="btn btn-default btn-block"><%= t('I am not Attending') %></button>
 						</div>
 					</form>
 				</div>

@@ -8,7 +8,7 @@ var exports = module.exports = {};
 
 
 
-var galleryCreator = ( dir ) => {
+var galleryCreator = ( dir ,tr) => {
 // exports.galleryCreator = function( dir ) {
     html='';
 
@@ -30,7 +30,8 @@ var galleryCreator = ( dir ) => {
             html += '<a href="#'+fileName.replace(/ /g,"-")+'"  class="btn-gallery">';
             html += '<div class="case-studies-summary">';
             html += '<span>'+numOfFiles+' Photos</span>';
-            html += '<h2>'+fileName.replace(/^\d+/,"")+'</h2>';
+            //Each gallery folder name is leaded by a number and a space,which is used to order the gallery (at least on unix readdir)
+            html += '<h2>'+tr(fileName.replace(/^\d+ /,""))+'</h2>';
             html += '</div>';
             html += '</a>';
             html += '</li>';
