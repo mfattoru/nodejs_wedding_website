@@ -4,14 +4,13 @@ var send = async (body) => {
     console.log(JSON.stringify(body));
 
     var {fname,lname,subject,message,email} = body;
-
     let account = {
-        user: "info@micheleandrosa.wedding",
+        user: process.env.MAIL_ADDR,
         pass: process.env.MAIL_PWD
     }
       
     let transporter = nodemailer.createTransport({
-        host: "mail.micheleandrosa.wedding",
+        host: process.env.MAIL_SMTP,
         port: 465,
         secure: true,
         auth: {
@@ -23,9 +22,9 @@ var send = async (body) => {
     // setup email data with unicode symbols
     let mailOptions = {
         
-        from: `"${fname} ${lname} - ${email}" <info@micheleandrosa.wedding>`, // sender address
+        from: `"${fname} ${lname} - ${email}" <${process.env.MAIL_ADDR}>`, // sender address
         // from: `"${fname} ${lname}" <${email}>`, 
-        to: "michele.fattoruso@gmail.com, rosaruedave@gmail.com, info@micheleandrosa.wedding", // list of receivers
+        to: `${process.env.MAIL_ADDR}`, // list of receivers
         // to: "juventino990@hotmail.it,info@micheleandrosa.wedding", // list of receivers
         subject: `${subject}`, // Subject line
         text: `${message}`, // plain text body
@@ -33,16 +32,26 @@ var send = async (body) => {
         // html: "<b>Hello world?</b>" // html body
     };
 
-    console.log("Almost Finished");
-    // send mail with defined transport object
-    let info = await transporter.sendMail(mailOptions,function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-          console.log(JSON.stringify(info));
-        }
-    });
+    // Returning a promise, so we can handtle the async job
+    return new Promise(function(resolve, reject) {
+    	// Do async job
+        transporter.sendMail(mailOptions,function(error, info){
+            if (error) {
+                reject(error);
+            } else {
+                resolve(info.response);
+            }
+        })
+    })
+    // // send mail with defined transport object
+    // let info = await transporter.sendMail(mailOptions,function(error, info){
+    //     if (error) {
+    //         // TODO: Handle the case when The mail isn't successfully sent
+    //         console.log(error);
+    //     } else {
+    //         console.log('Email sent: ' + info.response);
+    //     }
+    // });
 
 }
 

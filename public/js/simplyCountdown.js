@@ -128,7 +128,31 @@
 
     var jsonData = httpGet('minutes');
 
+    // TRY with promise, still can't get the value out of it. 
+    // var promiseJson =  new Promise(function(resolve, reject) {
 
+    //     $.getJSON('minutes', function(data) {
+    //         console.log("minutes data: "+JSON.stringify(data));
+    //         resolve(data);
+    //         // jsonvar =  data;
+    //    }).done( function(data) { 
+    //        console.log("data2: "+JSON.stringify(data));
+    //        return data 
+    //     })
+    //    .fail(function(){ console.log("JSON fetch failed!")} );
+    // //    .always(function() { alert("complete"); });;
+    // })
+
+    // var jsonData;
+    // promiseJson.then(function(result){
+    //     console.log("result: "+JSON.stringify(result));
+    //     jsonData = result;
+    //     return result;
+    // })
+
+    // console.log("data3: "+JSON.stringify(jsonData));
+
+    // OLD TRY
     // async function getJson() {
 
     //     const response = await fetch('minutes', {});
@@ -148,6 +172,7 @@
     // console.log("data2 : "+jsonData2);
 
     simplyCountdown = function (elt, args) {
+
         var parameters = extend({
                 year: 2019,
                 month: 10,
@@ -163,6 +188,7 @@
                 //     pluralLetter: 's'
                 // },
                 words: JSON.parse(jsonData),
+                // words: jsonData,
                 plural: true,
                 inline: false,
                 enableUtc: true,

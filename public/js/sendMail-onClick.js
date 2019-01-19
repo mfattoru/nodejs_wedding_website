@@ -24,11 +24,12 @@ $(document).ready(function(){
             e.preventDefault();
             $.post(`${HOST}/sendMail`,{fname,lname,subject,message,email}, function(data){
                 console.log("data: "+ data.text);
-                $("#submitEmail").html(data.text); 
+                // $("#submitEmail").html(data.text);
+                $("#submitEmail").attr("value",data.text); 
                 if(data.status==='ok'){                    
-                    $("#submitEmail").css("background",'#4CAF50');
+                    $("#submitEmail").css("style",'background: #4CAF50;');
                 }else{
-                    $("#submitEmail").css("background",'#f44336');
+                    $("#submitEmail").css("style",'background: #f44336;');
                 }
             });
         }

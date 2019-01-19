@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 const gallery = require('./engine/galleryCreator');
 const participation = require('./engine/participation')
-console.log("PWD: "+JSON.stringify(process.env.MAIL_PWD));
+const twitter = require('./engine/twitter_bot')
+
 const sendMail = require('./engine/sendMail')
 
 const tableify = require('tableify');
@@ -75,15 +76,27 @@ app.get('/minutes', (req, res) => {
     });
 });
 
-app.get('/test', (req, res) => {
-    res.render('test');
-    // res.send(req.t('Wedding'));
-});
+// app.get('/test', (req, res) => {
+//     twitter.getTweets().then( (result) =>{
+//         res.render('test',{tweets: result});
+//     });
+//     // res.render('test');
+//     // res.send("Hello Test!")
+//     // res.send(req.t('Wedding'));
+// });
 
 // app.get('/index.php', function (req, res,next) {  //to run attached to the apache server
 app.get('/', function (req, res,next) {
-    // console.log(req.__('Hello'));
-    res.render('index',{ gallery: gallery.galleryCreator('public/images/gallery',req.t) });
+
+    twitter.getTweets().then( (tweets) =>{
+        res.render('index',{ gallery: gallery.galleryCreator('public/images/gallery',req.t),tweets });
+    }).catch((err) => {
+        // Handle any error that occurred in any of the previous
+        // promises in the chain.
+        console.log(error);
+        res.render('index',{ gallery: gallery.galleryCreator('public/images/gallery',req.t),tweets :""});
+    });
+
 });
 
 app.get('/gallery', function (req, res,next) {
@@ -118,16 +131,32 @@ app.post('/addAttendant', function(req, res) {
     }
 });
 
+
 app.post('/sendMail', function(req, res) {
     // var {fname,lname,subject,message,email} = req.body;
     // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
     // console.log(JSON.stringify(req.body));
-    //try{
-        sendMail.send(req.body)
-        res.send({status:"ok",text:req.t("Email Successfully Sent")});
-    // }catch(err){
-    //     res.send({status:"error",text:req.t("An error occurred while sending the email, please try again!")})
-    // }
+        // foo(req.body, function(res){
+        //     alert(location); // this is where you get the return value
+        // });
+
+        // const start = async function(r) {
+        //     const result = await sendMail.send(r.body);;
+        //     res.send({status:"ok",text:r.t("Message Sent Successfully!")})
+        //     console.log("Message Sent Successfully!");
+        // }
+        // start(req);
+    var sendPromise = sendMail.send(req.body);
+    sendPromise.then( (result) => {
+        console.log("Mail sent successfully");
+        console.log(result);
+        res.send({status:"ok",text:req.t("Message Sent Successfully!")})
+    }).catch((err) => {
+        res.send({status:"error",text:req.t("An error occurred while sending the email, please try again!")});
+        console.log(err);
+    });
+        // await sendMail.send(req.body);
+        // res.send({status:"ok",text:req.t("Message Sent Successfully!")})
 });
 
 app.get('/participationlist', function(req, res){

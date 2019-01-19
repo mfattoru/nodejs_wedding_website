@@ -23,6 +23,7 @@
     "jquery-i18next": "^1.2.1",
     "nodemailer": "^5.1.1",
     "papaparse": "^4.6.3",
-    "tableify": "^1.1.0"
+    "tableify": "^1.1.0",
+    "twitter": "^1.7.1"
   }
 }
