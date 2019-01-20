@@ -1,6 +1,6 @@
 // <!-- Ajax post request to send the participation informations-->
 // const HOST = "http://micheleandrosa.wedding"  //when deployed
-const HOST = "http://localhost:50122"      //on local test
+// const HOST = "http://localhost:50122"      //on local test
 
 // i18next
 //     .use(i18nextXHRBackend)
@@ -33,7 +33,7 @@ $(document).ready(function(){
             // avoid the refresh of the page on submit
             e.preventDefault();
 
-            $.post(`${HOST}/addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
+            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
                 console.log("data: "+ data.text);
                 if(data.status==='done' || data.status==='duplicates'){
                     $("#submitAttending").html(data.text); 
@@ -85,7 +85,7 @@ $(document).ready(function(){
             // avoid the refresh of the page on submit
             e.preventDefault();
 
-            $.post(`${HOST}/addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
+            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
                 if(data.status==='done' || data.status==='duplicates'){
                     $("#submitNotAttending").html(data.text); 
                     $("#submitNotAttending").attr("disabled", true);

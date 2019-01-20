@@ -3,25 +3,31 @@ const nodemailer = require("nodemailer");
 var send = async (body) => {
     console.log(JSON.stringify(body));
 
-    var {fname,lname,subject,message,email} = body;
+    var {
+        fname,
+        lname,
+        subject,
+        message,
+        email
+    } = body;
     let account = {
         user: process.env.MAIL_ADDR,
         pass: process.env.MAIL_PWD
     }
-      
+
     let transporter = nodemailer.createTransport({
         host: process.env.MAIL_SMTP,
         port: 465,
         secure: true,
         auth: {
-            user: account.user, // generated ethereal user
-            pass: account.pass // generated ethereal password
+            user: account.user,
+            pass: account.pass
         }
     });
 
     // setup email data with unicode symbols
     let mailOptions = {
-        
+
         from: `"${fname} ${lname} - ${email}" <${process.env.MAIL_ADDR}>`, // sender address
         // from: `"${fname} ${lname}" <${email}>`, 
         to: `${process.env.MAIL_ADDR}`, // list of receivers
@@ -33,9 +39,9 @@ var send = async (body) => {
     };
 
     // Returning a promise, so we can handtle the async job
-    return new Promise(function(resolve, reject) {
-    	// Do async job
-        transporter.sendMail(mailOptions,function(error, info){
+    return new Promise(function (resolve, reject) {
+        // Do async job
+        transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 reject(error);
             } else {

@@ -76,5 +76,6 @@
   "An error occurred while sending the email, please try again!": "An error occurred while sending the email, please try again!",
   "Email Successfully Sent": "Email Successfully Sent",
   "Message Sent Successfully!": "Message Sent Successfully!",
-  "Download Excel": "Download Excel"
+  "Download Excel": "Download Excel",
+  "key": "key"
 }

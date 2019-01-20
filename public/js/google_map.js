@@ -1,13 +1,13 @@
 
 var google;
 
-var locations = [ 
-                  ['Main Ceremony','Barichara Main Park, Santander, Colombia','images/church-icon.png'],
-                  ['Home','1704 Ontario Ave, Naperville IL 60563','images/house-icon.png'],
-                  ['His Hometown','Via San Nicola del vaglio 8, Lettere Napoli 80050','images/house-icon.png'],
-                  ['Wedding Party','Cl. 3 #2-38, Barichara, Santander, Colombia','images/party-icon.png'],
-                  ['Honeymoon','Greece','images/honeymoon-icon.png'],
-                ];
+var locations = [
+    ['Main Ceremony', 'Barichara Main Park, Santander, Colombia', 'images/church-icon.png'],
+    ['Home', '1704 Ontario Ave, Naperville IL 60563', 'images/house-icon.png'],
+    ['His Hometown', 'Via San Nicola del vaglio 8, Lettere Napoli 80050', 'images/house-icon.png'],
+    ['Wedding Party', 'Cl. 3 #2-38, Barichara, Santander, Colombia', 'images/party-icon.png'],
+    ['Honeymoon', 'Greece', 'images/honeymoon-icon.png'],
+];
 // var titles = ['Capilla de Santa Barbara',
 //               'Our Home'];
 
@@ -22,14 +22,14 @@ function init() {
     // -8.224454
 
     var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
-        zoom: 3,
+            // How zoomed in you want the map to start at (always required)
+            zoom: 3,
 
-        // The latitude and longitude to center the map (always required)
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        // How you would like to style the map.
-        scrollwheel: false,
+            // The latitude and longitude to center the map (always required)
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            // How you would like to style the map.
+            scrollwheel: false,
         styles: [{"featureType":"administrative.land_parcel","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"simplified"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"hue":"#f49935"}]},{"featureType":"road.highway","elementType":"labels","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"hue":"#fad959"}]},{"featureType":"road.arterial","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"road.local","elementType":"labels","stylers":[{"visibility":"simplified"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#a1cdfc"},{"saturation":30},{"lightness":49}]}]
     };
 
@@ -54,8 +54,8 @@ function init() {
     }
 }
 
-function positionMArker(addressIndex,map) {
-    var geocodeCallBack = function(results, status) {
+function positionMArker(addressIndex, map) {
+    var geocodeCallBack = function (results, status) {
         var i = addressIndex;
         if (status == 'OK') {
             var marker = new google.maps.Marker({

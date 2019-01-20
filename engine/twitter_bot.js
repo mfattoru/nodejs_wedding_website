@@ -21,7 +21,7 @@ var tweetsToHtml = (tweets) => {
     var header = '<div class="item"><div class="testimony-slide active text-center">';
     var footer = '</div></div>';
 
-    for( var i=0; i < tweets.length; i++){
+    for (var i = 0; i < tweets.length; i++) {
         var tweetId = tweets[i].id_str;
         var screenName = tweets[i].user.screen_name;
         var profileImage = tweets[i].user.profile_image_url_https;
@@ -32,9 +32,9 @@ var tweetsToHtml = (tweets) => {
         var figure = `<figure><img src="${profileImage}" alt="user"></figure>`;
         var span = `<span>${userName}, via <a href="${tweetLink}" class="twitter">Twitter</a></span>`;
         var blockquote = `<blockquote><p>"${message}"</p></blockquote>`;
-    
+
         html += header + figure + span + blockquote + footer;
-        
+
         // console.log(tweet);
     }
     console.log("tweets converted correctly");
@@ -55,23 +55,23 @@ var getTweets = () => {
     // console.log('process.env.TWITTER_ACCESS_TOKEN_KEY:', process.env.TWITTER_ACCESS_TOKEN_KEY);
     // console.log(' process.env.TWITTER_ACCESS_TOKEN_SECRET:',  process.env.TWITTER_ACCESS_TOKEN_SECRET);
 
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
 
-        client.get('statuses/mentions_timeline.json?count=10', function(error, tweets, response) {
-            if(error){ 
+        client.get('statuses/mentions_timeline.json?count=10', function (error, tweets, response) {
+            if (error) {
                 console.log(error);
                 reject(error);
-            }else{
+            } else {
                 console.log('Tweets fetched correctly');
                 resolve(tweetsToHtml(tweets));
             }
-    
+
             // tweetsToHtml(tweets);
-            
-        
+
+
             // console.log(response);  // Raw response object.
         });
-    
+
     })
     // //get the mentions
     // client.get('statuses/mentions_timeline', function(error, tweets, response) {
@@ -81,8 +81,8 @@ var getTweets = () => {
     //     }
 
     //     tweetsToHtml(tweets);
-        
-    
+
+
     //     // console.log(response);  // Raw response object.
     // });
 
@@ -95,7 +95,7 @@ var getTweets = () => {
     //     console.log("Tweets2: "+JSON.stringify(tweets));  // The favorites.
     //     // console.log(response);  // Raw response object.
     // });
-    
+
 }
 
 
