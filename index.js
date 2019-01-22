@@ -131,6 +131,7 @@ app.get('/minutes', (req, res) => {
 // app.get('/index.php', function (req, res,next) {  //to run attached to the apache server
 app.get('/', function (req, res, next) {
     console.log("ROOT: "+req.t('Wedding'));
+    console.log(req.acceptsLanguages());
     twitter.getTweets().then((tweets) => {
         res.render('index', {
             gallery: gallery.galleryCreator('public/images/gallery', req.t),
@@ -242,6 +243,10 @@ app.get('/participationlist', function (req, res) {
 
 app.get('/downloadlist', function (req, res) {
     res.download('./data/participations-data.csv', 'participations-data.csv');
+});
+
+app.get('/sitemap', function (req, res) {
+    res.download('./data/sitemap.xml', 'sitemap.xml');
 });
 
 app.listen(process.env.PORT, function () { //for the configuration on the website
