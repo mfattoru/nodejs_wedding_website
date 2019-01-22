@@ -13,7 +13,7 @@ var send = async (body) => {
     let account = {
         user: process.env.MAIL_ADDR,
         pass: process.env.MAIL_PWD
-    }
+    };
 
     let transporter = nodemailer.createTransport({
         host: process.env.MAIL_SMTP,
@@ -47,8 +47,8 @@ var send = async (body) => {
             } else {
                 resolve(info.response);
             }
-        })
-    })
+        });
+    });
     // // send mail with defined transport object
     // let info = await transporter.sendMail(mailOptions,function(error, info){
     //     if (error) {
@@ -63,4 +63,4 @@ var send = async (body) => {
 
 module.exports = {
     send
-}
+};

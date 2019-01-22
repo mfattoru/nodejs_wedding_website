@@ -38,8 +38,9 @@ var tweetsToHtml = (tweets) => {
         // console.log(tweet);
     }
     console.log("tweets converted correctly");
+    console.log(html);
     return html;
-}
+};
 
 var getTweets = () => {
 
@@ -72,7 +73,7 @@ var getTweets = () => {
             // console.log(response);  // Raw response object.
         });
 
-    })
+    });
     // //get the mentions
     // client.get('statuses/mentions_timeline', function(error, tweets, response) {
     //     if(error){ 
@@ -96,10 +97,10 @@ var getTweets = () => {
     //     // console.log(response);  // Raw response object.
     // });
 
-}
+};
 
 
 
 module.exports = {
     getTweets
-}
+};

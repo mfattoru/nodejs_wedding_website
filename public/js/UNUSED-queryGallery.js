@@ -7,6 +7,6 @@
 //     });
 // }
 
-$.get( "http://localhost:3000/galleryCreator", function( data ) {
-  document.getElementById("fh5co-gallery-list").innerHTML = data;
-});
+// $.get( "http://localhost:3000/galleryCreator", function( data ) {
+//   document.getElementById("fh5co-gallery-list").innerHTML = data;
+// });

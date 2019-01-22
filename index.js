@@ -2,10 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const gallery = require('./engine/galleryCreator');
-const participation = require('./engine/participation')
-const twitter = require('./engine/twitter_bot')
+const participation = require('./engine/participation');
+const twitter = require('./engine/twitter_bot');
 
-const sendMail = require('./engine/sendMail')
+const sendMail = require('./engine/sendMail');
 
 const tableify = require('tableify');
 const i18nextXHRBackend = require('i18next-xhr-backend');
@@ -41,17 +41,17 @@ app.use(function (req, res, next) {
 // var options = {
 //     // order and from where user language should be detected
 //     order: [/*'path', 'session', */ 'querystring', 'cookie', 'header'],
-  
+
 //     // keys or params to lookup language from
 //     lookupQuerystring: 'lng',
 //     lookupCookie: 'i18next',
 //     lookupSession: 'lng',
 //     lookupPath: 'lng',
 //     lookupFromPathIndex: 0,
-  
+
 //     // cache user language
 //     caches: false, // ['cookie']
-  
+
 //     // optional expire and domain for set cookie
 //     cookieExpirationDate: new Date(),
 //     cookieDomain: 'myDomain',
@@ -79,6 +79,19 @@ i18n
 app.use(i18nMiddleware.handle(i18n, {
     removeLngFromUrl: false
 }));
+
+// function requireHTTPS(req, res, next) {
+//     // The 'x-forwarded-proto' check is for Heroku
+//     // if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
+//     if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
+
+//         return res.redirect('https://' + process.env.HOST + req.url);
+//     }
+//     next();
+// }
+
+// app.use(requireHTTPS);
+
 
 
 // app.get('/locales/:lang', (req, res) => {
@@ -188,13 +201,13 @@ app.post('/addAttendant', function (req, res) {
             res.send({
                 status: "done",
                 text: req.t("Participation saved")
-            })
+            });
         }
     } catch (err) {
         res.send({
             status: "error",
             text: req.t("Participation NOT saved, try again!")
-        })
+        });
     }
 });
 
@@ -220,7 +233,7 @@ app.post('/sendMail', function (req, res) {
         res.send({
             status: "ok",
             text: req.t("Message Sent Successfully!")
-        })
+        });
     }).catch((err) => {
         res.send({
             status: "error",
@@ -256,5 +269,5 @@ app.use(function(req, res, next) {
 });
 
 app.listen(process.env.PORT, function () { //for the configuration on the website
-    console.log(`Example app listening on port ${process.env.PORT}!`)
+    console.log(`Example app listening on port ${process.env.PORT}!`);
 });
