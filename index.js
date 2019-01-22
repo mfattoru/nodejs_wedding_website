@@ -249,6 +249,12 @@ app.get('/sitemap', function (req, res) {
     res.download('./data/sitemap.xml', 'sitemap.xml');
 });
 
+// Handle 404 - Keep this as a last route
+app.use(function(req, res, next) {
+    res.status(404);
+    res.render('404');
+});
+
 app.listen(process.env.PORT, function () { //for the configuration on the website
     console.log(`Example app listening on port ${process.env.PORT}!`)
 });

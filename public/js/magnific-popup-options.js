@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // MagnificPopup
+	// MagnificPopup
 	var magnifPopup = function() {
 		$('.image-popup').magnificPopup({
 			type: 'image',
@@ -28,7 +28,12 @@ $(document).ready(function() {
 
 	var magnifVideo = function() {
 		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-	        disableOn: 700,
+	        disableOn: function() {
+				if( $(window).width() < 700 ) {
+					return false;
+				}
+				return true;
+			},
 	        type: 'iframe',
 	        mainClass: 'mfp-fade',
 	        removalDelay: 160,
