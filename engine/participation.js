@@ -25,7 +25,7 @@ var jsonToCsv = () => {
     var csv = Papa.unparse(participations);
     fs.writeFileSync('./data/participations-data.csv', csv);
 
-}
+};
 
 
 var addParticipation = (name, numberAdults, numberChildren, email, overwrite) => {
@@ -42,7 +42,7 @@ var addParticipation = (name, numberAdults, numberChildren, email, overwrite) =>
         //we update the participation, if the email address already exists
         var newParticipations = participations.filter((participation) => {
             return participation.email !== email;
-        })
+        });
 
         if (newParticipations.length !== participations.length) {
             duplicateFound = true;
@@ -122,7 +122,7 @@ var logParticipation = (participation) => {
     console.log(`Number of Adult Patricipants: ${participation.numberAdults}`);
     console.log(`Number of Children Patricipants: ${participation.numberChildren}`);
     console.log(`email: ${participation.email}`);
-}
+};
 
 var totalParticipants = () => {
     participations = fetchParticipations();
@@ -132,7 +132,7 @@ var totalParticipants = () => {
     }, 0);
 
     var totalChildren = participations.reduce((total, curr) => {
-        return total + parseInt(curr.numberChildren)
+        return total + parseInt(curr.numberChildren);
     }, 0);
 
     return {
@@ -140,7 +140,7 @@ var totalParticipants = () => {
         "Number of Children": totalChildren,
         "Total Guests": totalAdults + totalChildren
     };
-}
+};
 
 
 
@@ -152,4 +152,4 @@ module.exports = {
     removeParticipation,
     logParticipation,
     totalParticipants
-}
+};
