@@ -38,7 +38,7 @@ var tweetsToHtml = (tweets) => {
         // console.log(tweet);
     }
     console.log("tweets converted correctly");
-    console.log(html);
+    // console.log(html);
     return html;
 };
 

@@ -22,7 +22,7 @@ $(document).ready(function(){
     var user,pass;
     var count=0;
     $("#submitAttending").click(function(e,i18next){
-
+        
         name=$("#name").val();
         numberAdults=$("#numberAdults").val();
         numberChildren=$("#numberChildren").val();
