@@ -18,10 +18,10 @@
 //     });
 
 $(document).ready(function(){
-
+    
     var user,pass;
     var count=0;
-    $("#submitAttending").click(function(e,i18next){
+    $("#submitAttending").click(function(e){
         
         name=$("#name").val();
         numberAdults=$("#numberAdults").val();
@@ -33,43 +33,79 @@ $(document).ready(function(){
             // avoid the refresh of the page on submit
             e.preventDefault();
 
-            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
-                console.log("data: "+ data.text);
-                if(data.status==='done' || data.status==='duplicates'){
-                    $("#submitAttending").html(data.text); 
-                    $("#submitAttending").attr("disabled", true);
-                    $("#submitAttending").css("background",'#4CAF50');
+            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:false,participating:true}, function(data){
+                // console.log("data: "+ data.text);
+                // if(data.status==='done' || data.status==='duplicates'){
+                if(data.status==='done'){
+                    swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        type: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                    // $("#submitAttending").html(data.text); 
+                    // $("#submitAttending").attr("disabled", true);
+                    // $("#submitAttending").css("background",'#4CAF50');
                     // alert("Thank you "+name+", your participation has been correctly saved.");
-                // }else if(data.status==='duplicates'){
-                //     $("#submitAttending").html(data.text)); 
-                //     $("#submitAttending").attr("disabled", true);
-                //     $("#submitAttending").css("background",'#4CAF50');
+                }else if(data.status==='duplicates'){
 
-                    // Preferred to automatically update an existing participation instead of querying the user if they want to update it
-                    // Now oven when overwrite is true, the method returns is it finds a duplicate or not, so done or duplicate
-                    // e.preventDefault();
-                    // var confirmation = confirm("There's already a participation under your email, Do you want to update it?");
-                    // if( confirmation === true){  //yes, we want to overwrite it
-                    //     $.post("http://localhost:3000/addAttendant",{name,numberAdults,numberChildren,email,overwrite:true}, function(data2){
-                    //         console.log("data2 = "+data2);
-                    //         if(data2==='done'){
-                    //             $("#submitAttending").html("Participation updated"); 
-                    //             $("#submitAttending").attr("disabled", true);
-                    //             $("#submitAttending").css("background",'#4CAF50');
-                    //         }else{
-                    //             $("#submitAttending").html("Participation NOT saved, try again!"); 
-                    //             $("#submitAttending").css("background",'#f44336');
-                    //             alert("There was an error while updating your participation, Please try again in few minutes.");
-                    //         }
-                    //     });
-                    
-                    // }
+                    swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        type: "question",
+                        // buttons: [
+                        //     data.cancelButton,
+                        //     data.confirmButton
+                        // ],
+                        // confirmButtonColor: "#ff0055",
+                        // cancelButtonColor: "#999999",
+                        showCancelButton: true,
+                        focusConfirm: false,
+                        focusCancel: true,
+                        confirmButtonText: data.confirmButton,
+                        cancelButtonText: data.cancelButton
+                            // dangerMode: true,
+                    }).then(function (result) {
+                        if (result.value) {
+                            $.post("addAttendant",{name,numberAdults,numberChildren,email,overwrite:true,participating:true}, function(data){
+                                // console.log("data2 = "+data2);
+                                if(data.status==='done'){
+                                    // console.log("DONEDONE")
+                                    swal.fire({
+                                        title: data.title,
+                                        text: data.text,
+                                        type: 'success',
+                                        confirmButtonText: 'OK'
+                                    })
+                                    // $("#submitAttending").html("Participation updated"); 
+                                    // $("#submitAttending").attr("disabled", true);
+                                    // $("#submitAttending").css("background",'#4CAF50');
+                                }else{
+                                    // console.log("ERRERR")
+                                    swal.fire({
+                                        title: data.title,
+                                        text: data.text,
+                                        type: 'error',
+                                        confirmButtonText: 'OK'
+                                    })
+                                    // $("#submitAttending").html("Participation NOT saved, try again!"); 
+                                    // $("#submitAttending").css("background",'#f44336');
+                                    // alert("There was an error while updating your participation, Please try again in few minutes.");
+                                }
+                            });
+                        }
+                    });
                 }else{
-                    $("#submitAttending").html(data.text); 
-                    $("#submitAttending").css("background",'#f44336');
+                    swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        type: 'error',
+                        confirmButtonText: 'OK'
+                    })
+                    // $("#submitAttending").html(data.text); 
+                    // $("#submitAttending").css("background",'#f44336');
                     // alert("There was an error while saving your participation, Please try again in few minutes.")
                 }
-                // $("#submitAttending").localize();
             });
         }
     });
@@ -81,23 +117,68 @@ $(document).ready(function(){
         numberChildren='0';
         email=$("#email").val();
         
-        if( name !== '' && numberAdults !== '' && email !== '' && numberChildren !== '' ){
+        if( name !== '' && email !== '' ){
             // avoid the refresh of the page on submit
             e.preventDefault();
 
-            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
-                if(data.status==='done' || data.status==='duplicates'){
-                    $("#submitNotAttending").html(data.text); 
-                    $("#submitNotAttending").attr("disabled", true);
-                    $("#submitNotAttending").css("background",'#FFA500');
-                    // alert("Thank you "+name+", your participation has been correctly saved.");
-                // }else if(data==='duplicates'){
+            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:false,participating:false}, function(data){
+                if(data.status==='done' ){
+                    swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        type: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                    // $("#submitNotAttending").html(data.text); 
+                    // $("#submitNotAttending").attr("disabled", true);
+                    // $("#submitNotAttending").css("background",'#FFA500');
+                }else if(data.status==='duplicates'){
+                    swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        type: "question",
+                        // confirmButtonColor: "#ff0055",
+                        // cancelButtonColor: "#999999",
+                        showCancelButton: true,
+                        focusConfirm: false,
+                        focusCancel: true,
+                        confirmButtonText: data.confirmButton,
+                        cancelButtonText: data.cancelButton
+                            // dangerMode: true,
+                    }).then(function (result) {
+                        if (result.value) {
+                            $.post("addAttendant",{name,numberAdults,numberChildren,email,overwrite:true,participating:false}, function(data){
+                                // console.log("data2 = "+data2);
+                                if(data.status==='done'){
+                                    swal.fire({
+                                        title: data.title,
+                                        text: data.text,
+                                        type: 'success',
+                                        confirmButtonText: 'OK'
+                                    })
+                                }else{
+                                    swal.fire({
+                                        title: data.title,
+                                        text: data.text,
+                                        type: 'error',
+                                        confirmButtonText: 'OK'
+                                    })
+                                }
+                            });
+                        }
+                    });
                 //     $("#submitNotAttending").html(i18next.t("Participation updated")); 
                 //     $("#submitNotAttending").attr("disabled", true);
                 //     $("#submitNotAttending").css("background",'#FFA500');
                 }else{
-                    $("#submitNotAttending").html(data.text); 
-                    $("#submitNotAttending").css("background",'#f44336');
+                    swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        type: 'error',
+                        confirmButtonText: 'OK'
+                    })
+                    // $("#submitNotAttending").html(data.text); 
+                    // $("#submitNotAttending").css("background",'#f44336');
                 }
                 // $("#submitNotAttending").localize();
 
@@ -105,34 +186,34 @@ $(document).ready(function(){
         }
     });
 
-    $("#submitNotAttending").click(function(e){
+    // $("#submitNotAttending").click(function(e){
 
-        name=$("#name").val();
-        numberAdults='0';
-        numberChildren='0';
-        email=$("#email").val();
+    //     name=$("#name").val();
+    //     numberAdults='0';
+    //     numberChildren='0';
+    //     email=$("#email").val();
         
-        if( name !== '' && numberAdults !== '' && email !== '' && numberChildren !== '' ){
-            // avoid the refresh of the page on submit
-            e.preventDefault();
+    //     if( name !== '' && numberAdults !== '' && email !== '' && numberChildren !== '' ){
+    //         // avoid the refresh of the page on submit
+    //         e.preventDefault();
 
-            $.post(`${HOST}/addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
-                if(data.status==='done' || data.status==='duplicates'){
-                    $("#submitNotAttending").html(data.text); 
-                    $("#submitNotAttending").attr("disabled", true);
-                    $("#submitNotAttending").css("background",'#FFA500');
-                    // alert("Thank you "+name+", your participation has been correctly saved.");
-                // }else if(data==='duplicates'){
-                //     $("#submitNotAttending").html(i18next.t("Participation updated")); 
-                //     $("#submitNotAttending").attr("disabled", true);
-                //     $("#submitNotAttending").css("background",'#FFA500');
-                }else{
-                    $("#submitNotAttending").html(data.text); 
-                    $("#submitNotAttending").css("background",'#f44336');
-                }
-                // $("#submitNotAttending").localize();
+    //         $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:true}, function(data){
+    //             if(data.status==='done' || data.status==='duplicates'){
+    //                 $("#submitNotAttending").html(data.text); 
+    //                 $("#submitNotAttending").attr("disabled", true);
+    //                 $("#submitNotAttending").css("background",'#FFA500');
+    //                 // alert("Thank you "+name+", your participation has been correctly saved.");
+    //             // }else if(data==='duplicates'){
+    //             //     $("#submitNotAttending").html(i18next.t("Participation updated")); 
+    //             //     $("#submitNotAttending").attr("disabled", true);
+    //             //     $("#submitNotAttending").css("background",'#FFA500');
+    //             }else{
+    //                 $("#submitNotAttending").html(data.text); 
+    //                 $("#submitNotAttending").css("background",'#f44336');
+    //             }
+    //             // $("#submitNotAttending").localize();
 
-            });
-        }
-    });
+    //         });
+    //     }
+    // });
 });

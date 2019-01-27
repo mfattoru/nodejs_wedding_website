@@ -44,9 +44,9 @@ var addParticipation = (name, numberAdults, numberChildren, email, overwrite) =>
             return participation.email !== email;
         });
 
-        if (newParticipations.length !== participations.length) {
-            duplicateFound = true;
-        }
+        // if (newParticipations.length !== participations.length) {
+        //     duplicateFound = true;
+        // }
         newParticipations.push(participation);
         saveParticipations(newParticipations);
         console.log('overwriting  called');
@@ -65,7 +65,7 @@ var addParticipation = (name, numberAdults, numberChildren, email, overwrite) =>
         } else { //if not, 
             duplicateFound = true;
         }
-        console.log('not overwriting called');
+        console.log('########not overwriting called');
 
     }
     console.log('returning ' + duplicateFound);

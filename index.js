@@ -186,27 +186,50 @@ app.post('/addAttendant', function (req, res) {
         numberAdults,
         numberChildren,
         email,
-        overwrite
+        overwrite,
+        participating
     } = req.body;
     // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
     try {
         var foundDuplicates = participation.addParticipation(name, numberAdults, numberChildren, email, overwrite);
-
-        if (foundDuplicates === true) {
-            res.send({
-                status: "duplicates",
-                text: req.t("Participation updated")
-            });
-        } else {
-            res.send({
-                status: "done",
-                text: req.t("Participation saved")
-            });
+        if( participating === 'true'){
+            if (foundDuplicates === true) {
+                res.send({
+                    status: "duplicates",
+                    text: req.t("Do you want to update it?"),
+                    title: req.t("Participation Already Available"),
+                    confirmButton: req.t("YES"),
+                    cancelButton: req.t("NO")
+                });
+            } else {
+                res.send({
+                    status: "done",
+                    text: req.t("Thank you for notifying us"),
+                    title: req.t("Participation Saved")
+                });
+            }
+        }else{  //telling us they won't participate
+            if (foundDuplicates === true) {
+                res.send({
+                    status: "duplicates",
+                    text: req.t("Are you sure you don't want to participate anymore?"),
+                    title: req.t("Participation Already Available"),
+                    confirmButton: req.t("YES"),
+                    cancelButton: req.t("NO")
+                });
+            } else {
+                res.send({
+                    status: "done",
+                    text: req.t("We are sorry you can't make it. If you change your mind, come update your registration through your email!"),
+                    title: req.t("Participation Saved")
+                });
+            }
         }
     } catch (err) {
         res.send({
             status: "error",
-            text: req.t("Participation NOT saved, try again!")
+            title: req.t("Participation Not Saved"),
+            text: req.t("Please try again in few minutes!")
         });
     }
 });
