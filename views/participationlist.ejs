@@ -204,23 +204,32 @@
 
 
 	<script>
-	var d = new Date("August 24 2019 16:00");
-    //var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
+	var d = new Date("2019-08-24 15:00:00")
 
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
-    });
 
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
-        enableUtc: false
-    });
+	//var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
+
+	// default example
+	simplyCountdown('.simply-countdown-one', {
+		year: d.getFullYear(),
+		month: d.getMonth() + 1,
+		day: d.getDate(),
+		hours: d.getHours(),
+		minutes: d.getMinutes(),
+		seconds: d.getSeconds()
+	});
+
+	//jQuery example
+	$('#simply-countdown-losange').simplyCountdown({
+		year: d.getFullYear(),
+		month: d.getMonth() + 1,
+		day: d.getDate(),
+		hours: d.getHours(),
+		minutes: d.getMinutes(),
+		seconds: d.getSeconds(),
+		enableUtc: false
+	});
+
 </script>
 
 	</body>

@@ -9,7 +9,7 @@
 	<title><%= t('Michele & Rosa Wedding') %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Michele Fattoruso and Rosa Rueda wedding" />
-	<meta name="keywords" content="Michele Fattoruso Rosa Rueda Wedding Barichara 2019 Colombia" />
+	<meta name="keywords" content="Michele Fattoruso Rosa Rueda Wedding Barichara 2019 Colombia boda matrimonio" />
 	<meta name="author" content="Michele Fattoruso" />
 
 	<!-- Facebook and Twitter integration -->
@@ -77,7 +77,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="/"><%= t('Wedding') %><strong>.</strong></a></div>
+					<div id="fh5co-logo"><a href="/"><strong></strong></a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
@@ -117,7 +117,7 @@
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Michele &amp; Rosa</h1>
-							<h2><%= t('We Are Getting Married') %></h2>
+							<h2><%= t('We Are Getting Married!') %></h2>
 							<div class="simply-countdown simply-countdown-one"></div>
 							<p><a href="https://calendar.google.com/calendar/r/eventedit?text=Wedding+Michele+%26+Rosa&dates=20190907T210000Z/20190908T060000Z&details=For+details,+link+here:+https://example.com/tickets-43251101208&location=Barichara" target="_blank" class="btn btn-default btn-sm"><%= t('Save the date') %></a></p>
 						</div>
@@ -649,23 +649,34 @@
 	<script src="js/main.js"></script>
 
 
-
 	<script>
-	var d = new Date("August 24 2019 16:00");
+	// chicago + 6 = UTC
+	// var d = new Date("August 24 2019 16:00");
+	// var d = new Date("January 28 2019 01:25");
+	// var d = new Date("2019-01-26 21:32:00")
+	var d = new Date("2019-08-24 15:00:00")
+
+
     //var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
 
     // default example
     simplyCountdown('.simply-countdown-one', {
         year: d.getFullYear(),
         month: d.getMonth() + 1,
-        day: d.getDate()
+		day: d.getDate(),
+		hours: d.getHours(),
+		minutes: d.getMinutes(),
+		seconds: d.getSeconds()
     });
 
     //jQuery example
     $('#simply-countdown-losange').simplyCountdown({
         year: d.getFullYear(),
         month: d.getMonth() + 1,
-        day: d.getDate(),
+		day: d.getDate(),
+		hours: d.getHours(),
+		minutes: d.getMinutes(),
+		seconds: d.getSeconds(),
         enableUtc: false
 	});
 
