@@ -83,15 +83,15 @@
 					<ul>
 						<li class="active"><a href="/"><%= t('Home') %></a></li>
 						<li><a href="about"><%= t('Story') %></a></li>
-						<li class="has-dropdown">
-							<a href="gallery"><%= t('Gallery') %></a>
+						<li><a href="where"><%= t('When & Where') %></a></li>
+						<li><a href="gallery"><%= t('Gallery') %></a></li>
 							<!-- <ul class="dropdown">
 								<li><a href="#">HTML5</a></li>
 								<li><a href="#">CSS3</a></li>
 								<li><a href="#">Sass</a></li>
 								<li><a href="#">jQuery</a></li>
 							</ul> -->
-						</li>
+						<!-- </li> -->
 						<!-- <li class="has-dropdown">
 							<a href="services"><%= t('Languages') %></a>
 							<ul class="dropdown">
@@ -118,8 +118,9 @@
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Michele &amp; Rosa</h1>
 							<h2><%= t('We Are Getting Married!') %></h2>
+							<span class="date" style="color:white"><%= t('August 24th, 2019 Barichara, Colombia') %></span>
 							<div class="simply-countdown simply-countdown-one"></div>
-							<p><a href="https://calendar.google.com/calendar/r/eventedit?text=Wedding+Michele+%26+Rosa&dates=20190907T210000Z/20190908T060000Z&details=For+details,+link+here:+https://example.com/tickets-43251101208&location=Barichara" target="_blank" class="btn btn-default btn-sm"><%= t('Save the date') %></a></p>
+							<p><a href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20190824T210000Z%2F20190825T050000Z&text=Wedding%20Michele%20%26%20Rosa&location=Barichara%2C%20Santander%2C%20Colombia&details=For%20details%20visit%20http%3A%2F%2Fmicheleandrosa.wedding" target="_blank" class="btn btn-default btn-sm"><%= t('Save the date') %></a></p>
 						</div>
 					</div>
 				</div>
@@ -654,7 +655,7 @@
 	// var d = new Date("August 24 2019 16:00");
 	// var d = new Date("January 28 2019 01:25");
 	// var d = new Date("2019-01-26 21:32:00")
-	var d = new Date("2019-08-24 15:00:00")
+	var d = new Date("2019-08-24 16:00:00 (GMT-5)")
 
 
     //var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
