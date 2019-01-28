@@ -180,6 +180,10 @@ app.get('/services', function (req, res, next) {
     res.render('services');
 });
 
+app.get('/where', function (req, res, next) {
+    res.render('where');
+});
+
 app.post('/addAttendant', function (req, res) {
     var {
         name,
