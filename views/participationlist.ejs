@@ -78,24 +78,15 @@
 						<ul>
 							<li class="active"><a href="/"><%= t('Home') %></a></li>
 							<li><a href="about"><%= t('Story') %></a></li>
-							<li class="has-dropdown">
-								<a href="services"><%= t('Services') %></a>
-								<ul class="dropdown">
-									<li><a href="#"><%= t('Web Design') %></a></li>
-									<li><a href="#"><%= t('eCommerce') %></a></li>
-									<li><a href="#"><%= t('Branding') %></a></li>
-									<li><a href="#"><%= t('API') %></a></li>
-								</ul>
-							</li>
-							<li class="has-dropdown">
-								<a href="gallery"><%= t('Gallery') %></a>
+							<li><a href="where"><%= t('When & Where') %></a></li>
+							<li><a href="gallery"><%= t('Gallery') %></a></li>
 								<!-- <ul class="dropdown">
 									<li><a href="#">HTML5</a></li>
 									<li><a href="#">CSS3</a></li>
 									<li><a href="#">Sass</a></li>
 									<li><a href="#">jQuery</a></li>
 								</ul> -->
-							</li>
+							<!-- </li> -->
 							<li><a href="contact"><%= t('Contact') %></a></li>
 						</ul>
 					</div>
@@ -105,7 +96,21 @@
 		</nav>
 	
 
-    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/beach.jpg);" data-stellar-background-ratio="0.5">
+	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/origami.jpg);">
+		<div class="overlay"></div>
+		<div class="fh5co-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1><%= t('Participation List') %></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+    <!-- <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/beach.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -121,7 +126,7 @@
 				</div>
 			</div>
 		</div>
-    </header>
+    </header> -->
     
 
     <div id="fh5co-couple">
@@ -135,7 +140,7 @@
 				<hr>
 
                 <form class="form-inline">
-                    <div class="col-md-12 col-sm-12 feature-center">
+                    <div class="col-md-12 col-sm-12 feature-center" id="downloadExcel">
                         <button type="submit" id="submit" class="btn btn-default btn-block" style="background-color:#d0e4f5" formaction="http://micheleandrosa.wedding/downloadList"><%= t('Download Excel') %></button>
                     </div>
                 </form>
@@ -144,7 +149,7 @@
         </div>
 	</div>
 
-	<footer id="fh5co-footer" role="contentinfo">
+	<footer id="fh5co-footer" role="contentinfo" style="padding:3em 0;">
 		<div class="container">
 
 			<div class="row copyright">
