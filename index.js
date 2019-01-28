@@ -143,7 +143,7 @@ app.get('/minutes', (req, res) => {
 
 // app.get('/index.php', function (req, res,next) {  //to run attached to the apache server
 app.get('/', function (req, res, next) {
-    console.log("ROOT: "+req.t('Wedding'));
+    console.log("ROOT: " + req.t('Wedding'));
     console.log(req.acceptsLanguages());
     twitter.getTweets().then((tweets) => {
         res.render('index', {
@@ -173,7 +173,9 @@ app.get('/about', function (req, res, next) {
 });
 
 app.get('/contact', function (req, res, next) {
-    res.render('contact');
+    res.render('contact', {
+        MAPS_API: process.env.MAPS_API
+    });
 });
 
 app.get('/services', function (req, res, next) {
@@ -181,7 +183,9 @@ app.get('/services', function (req, res, next) {
 });
 
 app.get('/where', function (req, res, next) {
-    res.render('where');
+    res.render('where', {
+        MAPS_API: process.env.MAPS_API
+    });
 });
 
 app.post('/addAttendant', function (req, res) {
@@ -196,7 +200,7 @@ app.post('/addAttendant', function (req, res) {
     // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
     try {
         var foundDuplicates = participation.addParticipation(name, numberAdults, numberChildren, email, overwrite);
-        if( participating === 'true'){
+        if (participating === 'true') {
             if (foundDuplicates === true) {
                 res.send({
                     status: "duplicates",
@@ -212,7 +216,7 @@ app.post('/addAttendant', function (req, res) {
                     title: req.t("Participation Saved")
                 });
             }
-        }else{  //telling us they won't participate
+        } else { //telling us they won't participate
             if (foundDuplicates === true) {
                 res.send({
                     status: "duplicates",
@@ -290,11 +294,11 @@ app.get('/sitemap', function (req, res) {
 });
 
 // Handle 404 - Keep this as a last route
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.status(404);
     res.render('404');
 });
 
 app.listen(process.env.PORT, function () { //for the configuration on the website
-    console.log(`Example app listening on port ${process.env.PORT}!`);
+    console.log(`Wedding website listening on port ${process.env.PORT}!`);
 });
