@@ -1839,3 +1839,13 @@ form label {
 .js .animate-box {
   opacity: 0;
 }
+
+#submitEmail {
+  width: 100%;
+}
+
+#downloadExcel {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 0px;
+}
