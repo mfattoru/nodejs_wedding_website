@@ -49,7 +49,6 @@ var getAllFilesFromFolder = (dir) => {
     filesystem.readdirSync(dir).forEach(function (file) {
 
         file = dir + '/' + file;
-        console.log("file:"+file);
         
         if(file.substring(file.lastIndexOf('/')+1) === "background.jpg"){
             return;
