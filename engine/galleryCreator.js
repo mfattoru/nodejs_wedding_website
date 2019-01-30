@@ -49,6 +49,11 @@ var getAllFilesFromFolder = (dir) => {
     filesystem.readdirSync(dir).forEach(function (file) {
 
         file = dir + '/' + file;
+        console.log("file:"+file);
+        
+        if(file.substring(file.lastIndexOf('/')+1) === "background.jpg"){
+            return;
+        }
         var stat = filesystem.statSync(file);
         var fileExt = path.extname(file);
         // console.log(file);
@@ -58,7 +63,14 @@ var getAllFilesFromFolder = (dir) => {
             var lines = filesystem.readFileSync(file, 'utf-8').split('\n').filter(Boolean);
 
             lines.forEach(function (line) {
-                html += '<a href="' + line + '"></a>';
+                var url;
+                var title;
+                [url,title] = line.split(",");
+                if(title == null){
+                    html += '<a href="' + url + '"></a>';
+                }else{
+                    html += '<a href="' + url + '" title="'+title+'"></a>';
+                }
                 numOfFiles++;
             });
             // for(var line in lines){
