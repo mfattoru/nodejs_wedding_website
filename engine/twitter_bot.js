@@ -29,7 +29,7 @@ var tweetsToHtml = (tweets) => {
         var userName = tweets[i].user.name;
         var tweetLink = `https://twitter.com/${screenName}/status/${tweetId}`;
 
-        var figure = `<figure><img src="${profileImage}" alt="user"></figure>`;
+        var figure = `<figure><img src="${profileImage}" alt="user" onerror="this.src='images/twitter.png'"></figure>`;
         var span = `<span>${userName}, via <a href="${tweetLink}" class="twitter">Twitter</a></span>`;
         var blockquote = `<blockquote><p>"${message}"</p></blockquote>`;
 
