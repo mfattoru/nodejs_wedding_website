@@ -1,4 +1,4 @@
-https://i.imgur.com/avD9p5v.jpg,TITLE 1
+https://i.imgur.com/avD9p5v.jpg
 https://i.imgur.com/PZ6H8d8.jpg
 https://i.imgur.com/gOpSTBm.jpg
 https://i.imgur.com/ijGIjqr.jpg
@@ -11,6 +11,7 @@ https://i.imgur.com/pVWLQnR.jpg
 https://i.imgur.com/xliC9UO.jpg
 https://i.imgur.com/IC1T9RS.jpg
 https://i.imgur.com/LWPIhQM.jpg
+https://i.imgur.com/GPQ20OM.jpg
 https://i.imgur.com/4s3jF9t.jpg
 https://i.imgur.com/yX6hhPH.jpg
 https://i.imgur.com/T5cKHwk.jpg
