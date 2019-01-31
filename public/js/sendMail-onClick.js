@@ -15,13 +15,25 @@ $(document).ready(function(){
             // avoid the refresh of the page on submit
             e.preventDefault();
             $.post(`sendMail`,{fname,lname,subject,message,email}, function(data){
-                console.log("data: "+ data.text);
+                // console.log("data: "+ data.text);
                 // $("#submitEmail").html(data.text);
-                $("#submitEmail").attr("value",data.text); 
-                if(data.status==='ok'){                    
-                    $("#submitEmail").css("style",'background: #4CAF50;');
+                // $("#submitEmail").attr("value",data.text); 
+                if(data.status==='ok'){      
+                    swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        type: 'success',
+                        confirmButtonText: 'OK'
+                    })              
+                    // $("#submitEmail").css("style",'background: #4CAF50;');
                 }else{
-                    $("#submitEmail").css("style",'background: #f44336;');
+                    swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        type: 'error',
+                        confirmButtonText: 'OK'
+                    })
+                    // $("#submitEmail").css("style",'background: #f44336;');
                 }
             });
         }

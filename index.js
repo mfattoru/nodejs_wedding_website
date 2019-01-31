@@ -267,18 +267,20 @@ app.post('/sendMail', function (req, res) {
     // start(req);
     var sendPromise = sendMail.send(req.body);
     sendPromise.then((result) => {
-        console.log("Mail sent successfully");
-        console.log(result);
+        // console.log("Mail sent successfully");
+        // console.log(result);
         res.send({
             status: "ok",
-            text: req.t("Message Sent Successfully!")
+            title: req.t("Message Sent Successfully!"),
+            text: req.t("We will reply to your question as soon as possible.")
         });
     }).catch((err) => {
         res.send({
             status: "error",
-            text: req.t("An error occurred while sending the email, please try again!")
+            title: req.t("Unable to send the message"),
+            text: req.t('Please try again in a few minutes or send us an email at info@micheleandrosa.wedding.')
         });
-        console.log(err);
+        // console.log(err);
     });
     // await sendMail.send(req.body);
     // res.send({status:"ok",text:req.t("Message Sent Successfully!")})
