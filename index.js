@@ -73,6 +73,8 @@ i18n
         preload: ['en', 'es', 'it'],
         saveMissing: true,
         keySeparator: false,
+        // keySeparator: '>',
+        nsSeparator: false
         // detection: options
     });
 
@@ -199,9 +201,12 @@ app.post('/addAttendant', function (req, res) {
     } = req.body;
     // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
     try {
-        var foundDuplicates = participation.addParticipation(name, numberAdults, numberChildren, email, overwrite);
+        var foundDuplicates = participation.isParticipating(email);
+        console.log("DUPLICATES FOUND: "+foundDuplicates+" OVERWRITE: "+overwrite);
+        // var foundDuplicates = participation.addParticipation(name, numberAdults, numberChildren, email, overwrite);
         if (participating === 'true') {
-            if (foundDuplicates === true) {
+            if (foundDuplicates === true && overwrite === 'false') {
+                console.log("SENDING DUPLICATES");
                 res.send({
                     status: "duplicates",
                     text: req.t("Do you want to update it?"),
@@ -210,6 +215,8 @@ app.post('/addAttendant', function (req, res) {
                     cancelButton: req.t("NO")
                 });
             } else {
+                console.log("SENDING DONE");
+                participation.addParticipation(name, numberAdults, numberChildren, email );
                 res.send({
                     status: "done",
                     text: req.t("Thank you for notifying us"),
@@ -217,7 +224,7 @@ app.post('/addAttendant', function (req, res) {
                 });
             }
         } else { //telling us they won't participate
-            if (foundDuplicates === true) {
+            if (foundDuplicates === true && overwrite === 'false') {
                 res.send({
                     status: "duplicates",
                     text: req.t("Are you sure you don't want to participate anymore?"),
@@ -226,6 +233,7 @@ app.post('/addAttendant', function (req, res) {
                     cancelButton: req.t("NO")
                 });
             } else {
+                participation.addParticipation(name, numberAdults, numberChildren, email );
                 res.send({
                     status: "done",
                     text: req.t("We are sorry you can't make it. If you change your mind, come update your registration through your email!"),

@@ -27,8 +27,7 @@ var jsonToCsv = () => {
 
 };
 
-
-var addParticipation = (name, numberAdults, numberChildren, email, overwrite) => {
+var addParticipation = (name, numberAdults, numberChildren, email) => {
     var duplicateFound = false;
     participations = fetchParticipations();
     participation = {
@@ -37,53 +36,13 @@ var addParticipation = (name, numberAdults, numberChildren, email, overwrite) =>
         numberChildren,
         email
     };
-    console.log('participation called');
-    if (overwrite === 'true') {
-        //we update the participation, if the email address already exists
-        var newParticipations = participations.filter((participation) => {
-            return participation.email !== email;
-        });
 
-        // if (newParticipations.length !== participations.length) {
-        //     duplicateFound = true;
-        // }
-        newParticipations.push(participation);
-        saveParticipations(newParticipations);
-        console.log('overwriting  called');
+    var newParticipations = participations.filter((participation) => {
+        return participation.email !== email;
+    });
 
-    } else {
-        // will store the participations that are duplicate of our new participation
-        var duplicateParticipations = participations.filter((participation) => {
-            return participation.email === email; //returns true if the titles are equal
-        });
-
-        //if we don't have any participation that is duplicate, then we can add it and write it on file
-        if (duplicateParticipations.length === 0) {
-            participations.push(participation);
-            saveParticipations(participations);
-            // return participation;
-        } else { //if not, 
-            duplicateFound = true;
-        }
-        console.log('########not overwriting called');
-
-    }
-    console.log('returning ' + duplicateFound);
-
-    return duplicateFound;
-
-    //we can rewrite the filter function as:
-    // var duplicateParticipations = participations.filter( (participation) =>  participation.title === title); 
-
-    //if we don't have any participation that is duplicate, then we can add it and write it on file
-    // if (duplicateParticipations.length === 0){
-    //     participations.push(participation);
-    //     saveParticipations(participations);
-    //     return participation;
-    // }
-    // participations.push(participation);
-    // saveParticipations(participations);
-    // return participation;
+    newParticipations.push(participation);
+    saveParticipations(newParticipations);
 };
 
 var getAll = () => {
@@ -98,6 +57,19 @@ var getParticipation = (email) => {
     });
 
     return foundParticipation[0];
+};
+
+var isParticipating = (email) => {
+    var participations = fetchParticipations();
+
+    var foundParticipation = participations.filter((participation) => {
+        return participation.email === email;
+    });
+    if(foundParticipation.length > 0){
+        return true;
+    }else{
+        return false;
+    }
 };
 
 var removeParticipation = (email) => {
@@ -151,5 +123,6 @@ module.exports = {
     getParticipation,
     removeParticipation,
     logParticipation,
-    totalParticipants
+    totalParticipants,
+    isParticipating
 };
