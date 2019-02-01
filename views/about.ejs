@@ -102,7 +102,7 @@
 		</div>
 	</header>
 
-	<div id="fh5co-couple" class="fh5co-section-gray">
+	<!-- <div id="fh5co-couple" class="fh5co-section-gray">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
@@ -133,7 +133,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<div id="fh5co-couple-story">
 		<div class="container">
@@ -148,11 +148,11 @@
 				<div class="col-md-12 col-md-offset-0">
 					<ul class="timeline animate-box">
 						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url(images/couple-1.jpg);"></div>
+							<div class="timeline-badge" style="background-image:url(images/first_time_meet.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title"><%= t('First We Meet') %></h3>
-									<span class="date"><%= t('December 25, 2015') %></span>
+									<span class="date"><%= t('October 15, 2016') %></span>
 								</div>
 								<div class="timeline-body">
 									<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.') %></p>
@@ -160,11 +160,11 @@
 							</div>
 						</li>
 						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge" style="background-image:url(images/couple-2.jpg);"></div>
+							<div class="timeline-badge" style="background-image:url(images/first_date.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title"><%= t('First Date') %></h3>
-									<span class="date"><%= t('December 28, 2015') %></span>
+									<h3 class="timeline-title"><%= t('First Date... not Date') %></h3>
+									<span class="date"><%= t('January 21, 2017') %></span>
 								</div>
 								<div class="timeline-body">
 									<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.') %></p>
@@ -172,11 +172,23 @@
 							</div>
 						</li>
 						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url(images/couple-3.jpg);"></div>
+							<div class="timeline-badge" style="background-image:url(images/relationship.jpg);"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title"><%= t('In A Relationship') %></h3>
-									<span class="date"><%= t('January 1, 2016') %></span>
+									<span class="date"><%= t('January 29, 2017') %></span>
+								</div>
+								<div class="timeline-body">
+									<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.') %></p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-inverted animate-box">
+							<div class="timeline-badge" style="background-image:url(images/engaged.jpg);"></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title"><%= t('Engaged') %></h3>
+									<span class="date"><%= t('August 13, 2018') %></span>
 								</div>
 								<div class="timeline-body">
 									<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.') %></p>
@@ -200,30 +212,43 @@
 			</div>
 			<div class="row animate-box">
 				<div class="col-md-10 col-md-offset-1">
-					<form class="form-inline">
+					<form class="form-inline" onsubmit="return false">
 						<!--<form action="http://localhost:3000/addAttendant" method="post" class="form-inline">-->
-						<div class="col-md-3 col-sm-3">
+						<div class="col-md-6 col-sm-6">
 							<div class="form-group">
 								<label for="name" class="sr-only">Name</label>
 								<input type="name" class="form-control" id="name" name="name" placeholder="<%= t('Name') %>" required>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-3">
+						<div class="col-md-6 col-sm-6">
+							<div class="form-group">
+								<label for="email" class="sr-only">Email</label>
+								<input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
 								<label for="participants" class="sr-only">Number</label>
 								<input type="number" class="form-control" id="numberAdults" placeholder="<%= t('Number of Adults') %>" min="0" required>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-3">
+						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
 								<label for="participants" class="sr-only">Number</label>
 								<input type="number" class="form-control" id="numberChildren" placeholder="<%= t('Number of Children') %>" min="0" required>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-3">
+						
+						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
-								<label for="email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required>
+								<!-- <label for="evLocation" class="sr-only">Location</label> -->
+								<select name="evLocation" id="evLocation" class="form-control" required>
+									<option value="" disabled selected style="display: none;">Event Location</option>
+									<option value="Colombia">Colombia</option>
+									<option value="Italy">Italy</option>
+									<!-- <option value="Colombia,Italy">Both</option> -->
+								</select>
+								<!-- <input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required> -->
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
