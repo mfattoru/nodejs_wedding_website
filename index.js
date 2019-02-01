@@ -10,6 +10,8 @@ const sendMail = require('./engine/sendMail');
 const tableify = require('tableify');
 const i18nextXHRBackend = require('i18next-xhr-backend');
 const fs = require('fs');
+const Papa = require('papaparse');
+
 
 // const i18n = require('./engine/i18n')
 // const cookieParser = require('cookie-parser');
@@ -145,8 +147,8 @@ app.get('/minutes', (req, res) => {
 
 // app.get('/index.php', function (req, res,next) {  //to run attached to the apache server
 app.get('/', function (req, res, next) {
-    console.log("ROOT: " + req.t('Wedding'));
-    console.log(req.acceptsLanguages());
+    // console.log("ROOT: " + req.t('Wedding'));
+    // console.log(req.acceptsLanguages());
     twitter.getTweets().then((tweets) => {
         res.render('index', {
             gallery: gallery.galleryCreator('public/images/gallery', req.t),
@@ -155,7 +157,7 @@ app.get('/', function (req, res, next) {
     }).catch((err) => {
         // Handle any error that occurred in any of the previous
         // promises in the chain.
-        console.log(error);
+        // console.log(error);
         res.render('index', {
             gallery: gallery.galleryCreator('public/images/gallery', req.t),
             tweets: ""
@@ -197,11 +199,12 @@ app.post('/addAttendant', function (req, res) {
         numberChildren,
         email,
         overwrite,
-        participating
+        participating,
+        evLocation
     } = req.body;
     // console.log("User name = "+req.body.name +", mail is "+req.body.email +" number is "+req.body.number+"and overwrite is "+ req.body.overwrite);
     try {
-        var foundDuplicates = participation.isParticipating(email);
+        var foundDuplicates = participation.isParticipating(email,evLocation);
         console.log("DUPLICATES FOUND: "+foundDuplicates+" OVERWRITE: "+overwrite);
         // var foundDuplicates = participation.addParticipation(name, numberAdults, numberChildren, email, overwrite);
         if (participating === 'true') {
@@ -216,7 +219,7 @@ app.post('/addAttendant', function (req, res) {
                 });
             } else {
                 console.log("SENDING DONE");
-                participation.addParticipation(name, numberAdults, numberChildren, email );
+                participation.addParticipation(req.t,name, numberAdults, numberChildren, email ,evLocation);
                 res.send({
                     status: "done",
                     text: req.t("Thank you for notifying us"),
@@ -233,7 +236,7 @@ app.post('/addAttendant', function (req, res) {
                     cancelButton: req.t("NO")
                 });
             } else {
-                participation.addParticipation(name, numberAdults, numberChildren, email );
+                participation.addParticipation(req.t,name, numberAdults, numberChildren, email ,evLocation);
                 res.send({
                     status: "done",
                     text: req.t("We are sorry you can't make it. If you change your mind, come update your registration through your email!"),
@@ -287,16 +290,24 @@ app.post('/sendMail', function (req, res) {
 });
 
 app.get('/participationlist', function (req, res) {
-    var participations = participation.getAll();
-    var total = participation.totalParticipants();
     res.render('participationlist', {
-        table: tableify(participations),
-        total: tableify(total)
+        colombiaTable: tableify(participation.getAllByLocation("Colombia")),
+        colombiaTotal: tableify(participation.totalParticipantsByLocation("Colombia")),
+        italyTable: tableify(participation.getAllByLocation("Italy")),
+        italyTotal: tableify(participation.totalParticipantsByLocation("Italy"))
     });
 });
 
-app.get('/downloadlist', function (req, res) {
-    res.download('./data/participations-data.csv', 'participations-data.csv');
+app.get('/downloadlist/:loc', function (req, res) {
+    var loc = req.params.loc;
+    console.log("LOC: "+loc);
+    participations = participation.getAllByLocation(loc);
+    // var csv = Papa.unparse(participations);
+    //     fs.writeFileSync('./data/participations-data.csv', csv);
+    res.setHeader('Content-Type', 'text/csv');
+    res.setHeader('Content-Disposition', 'attachment; filename=\"' + 'participations-'+ loc+ "-"+ Date.now() + '.csv\"');
+    res.send(Papa.unparse(participations))
+    // res.download('./data/participations-data.csv', 'participations-data.csv');
 });
 
 app.get('/sitemap', function (req, res) {

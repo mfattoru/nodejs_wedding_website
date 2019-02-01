@@ -19,21 +19,30 @@
 
 $(document).ready(function(){
     
-    var user,pass;
-    var count=0;
+    // var user,pass;
+    // var count=0;
     $("#submitAttending").click(function(e){
-        
         name=$("#name").val();
         numberAdults=$("#numberAdults").val();
         numberChildren=$("#numberChildren").val();
         email=$("#email").val();
+        // evLocation="Pluto";
+        evLocation=$('#evLocation option:selected').val();
+        // e.preventDefault();
+
+        // alert(location);
+        // alert($(this).find('option:selected').val());
+        // alert($('#evLocation option:selected').text());
+        // alert($('#evLocation option:selected').val());
+        // alert($("#evLocation").val());
+        // console.log("Location: "+location);
 
         
-        if( name !== '' && numberAdults !== '' && email !== '' && numberChildren !== '' ){
+        if( name !== '' && numberAdults !== '' && email !== '' && numberChildren !== '' && evLocation !== ''){
             // avoid the refresh of the page on submit
             e.preventDefault();
 
-            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:false,participating:true}, function(data){
+            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:false,participating:true,evLocation}, function(data){
                 // console.log("data: "+ data.text);
                 // if(data.status==='done' || data.status==='duplicates'){
                 if(data.status==='done'){
@@ -67,7 +76,7 @@ $(document).ready(function(){
                             // dangerMode: true,
                     }).then(function (result) {
                         if (result.value) {
-                            $.post("addAttendant",{name,numberAdults,numberChildren,email,overwrite:true,participating:true}, function(data){
+                            $.post("addAttendant",{name,numberAdults,numberChildren,email,overwrite:true,participating:true,evLocation}, function(data){
                                 // console.log("data2 = "+data2);
                                 if(data.status==='done'){
                                     // console.log("DONEDONE")
@@ -116,12 +125,13 @@ $(document).ready(function(){
         numberAdults='0';
         numberChildren='0';
         email=$("#email").val();
+        evLocation=$('#evLocation option:selected').val();
         
-        if( name !== '' && email !== '' ){
+        if( name !== '' && email !== '' && evLocation !== ''){
             // avoid the refresh of the page on submit
             e.preventDefault();
 
-            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:false,participating:false}, function(data){
+            $.post(`addAttendant`,{name,numberAdults,numberChildren,email,overwrite:false,participating:false,evLocation}, function(data){
                 if(data.status==='done' ){
                     swal.fire({
                         title: data.title,
@@ -147,7 +157,7 @@ $(document).ready(function(){
                             // dangerMode: true,
                     }).then(function (result) {
                         if (result.value) {
-                            $.post("addAttendant",{name,numberAdults,numberChildren,email,overwrite:true,participating:false}, function(data){
+                            $.post("addAttendant",{name,numberAdults,numberChildren,email,overwrite:true,participating:false,evLocation}, function(data){
                                 // console.log("data2 = "+data2);
                                 if(data.status==='done'){
                                     swal.fire({
