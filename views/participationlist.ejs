@@ -132,18 +132,30 @@
     <div id="fh5co-couple">
         <div class="container">
             <div class="row">
-
-                <%- table %>
+				<h1 style="text-align: center;">Colombia Participants</h1>
+                <%- colombiaTable %>
 				<hr>
-				<%- total %>
+				<%- colombiaTotal %>
 
 				<hr>
 
                 <form class="form-inline">
                     <div class="col-md-12 col-sm-12 feature-center" id="downloadExcel">
-                        <button type="submit" id="submit" class="btn btn-default btn-block" style="background-color:#d0e4f5" formaction="http://micheleandrosa.wedding/downloadList"><%= t('Download Excel') %></button>
+                        <button type="submit" id="submit" class="btn btn-default btn-block" style="background-color:#d0e4f5" formaction="/downloadList/Colombia"><%= t('Download Excel') %></button>
                     </div>
-                </form>
+				</form>
+				<h1 style="text-align: center; margin-top: 150px;">Italy Participants</h1>
+                <%- italyTable %>
+				<hr>
+				<%- italyTotal %>
+
+				<hr>
+
+                <form class="form-inline">
+                    <div class="col-md-12 col-sm-12 feature-center" id="downloadExcel">
+                        <button type="submit" id="submit" class="btn btn-default btn-block" style="background-color:#d0e4f5" formaction="/downloadList/Italy"><%= t('Download Excel') %></button>
+                    </div>
+				</form>
                     
             </div>
         </div>

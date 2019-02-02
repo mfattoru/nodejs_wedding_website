@@ -1376,6 +1376,12 @@ form label {
 #fh5co-started .form-control:focus {
   background: rgba(255, 255, 255, 0.3);
 }
+.form-control option{
+  background-color: rgba(121, 115, 98); 
+}
+.form-group select {
+  display: none; /*hide original SELECT element: */
+}
 #fh5co-started .btn {
   height: 54px;
   border: none !important;
