@@ -1122,6 +1122,7 @@ form label {
   .couple-half .groom, .couple-half .bride {
     margin-left: 0;
     margin-right: 0;
+    padding-top: 0px;
   }
   .couple-half .desc-groom {
     padding-right: 0;
@@ -1379,9 +1380,26 @@ form label {
 .form-control option{
   background-color: rgba(121, 115, 98); 
 }
-.form-group select {
-  display: none; /*hide original SELECT element: */
+/* .form-group select {
+  display: none; /*hide original SELECT element: 
+} */
+
+select {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;       /* remove default arrow */
+  /* background-image: url('../images/drop-down-arrow.png') no-repeat right 12px;   /*add custom arrow */
 }
+
+select::-ms-expand { 
+  display: none; /* hide the default arrow in ie10 and ie11 */
+}
+
+/* select#evLocation{
+  border-radius: 4px;
+  -webkit-appearance: none;
+} */
+
 #fh5co-started .btn {
   height: 54px;
   border: none !important;

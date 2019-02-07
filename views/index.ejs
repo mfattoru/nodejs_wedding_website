@@ -559,7 +559,7 @@
 			</div>
 			<div class="row animate-box">
 				<div class="col-md-10 col-md-offset-1">
-					<form class="form-inline" onsubmit="return false">
+					<form class="form-inline" role="form">
 						<!--<form action="http://localhost:3000/addAttendant" method="post" class="form-inline">-->
 						<div class="col-md-6 col-sm-6">
 							<div class="form-group">
@@ -587,12 +587,12 @@
 						</div>
 						
 						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<!-- <label for="evLocation" class="sr-only">Location</label> -->
-								<select name="evLocation" id="evLocation" class="form-control" required>
-									<option value="" disabled selected style="display: none;">Event Location</option>
-									<option value="Colombia">Colombia</option>
-									<option value="Italy">Italy</option>
+							<div class="input-group form-group">
+								<!-- <label for="evLocation" class="sr-only">Event Location</label> -->
+								<select name="evLocation" id="evLocation" class="form-control" style="border-radius: 4px;" required>
+									<option value="" disabled selected style="display: none;"><%= t('Event Location') %></option>
+									<option value="Colombia"><%= t('Colombia') %></option>
+									<option value="Italy"><%= t('Italy') %></option>
 									<!-- <option value="Colombia,Italy">Both</option> -->
 								</select>
 								<!-- <input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required> -->
@@ -616,7 +616,7 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
+						<!-- <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> -->
 						<small class="block">Developed by <a href="https://www.linkedin.com/in/michele-fattoruso/" target="_blank">Michele Fattoruso</a></small>
 					</p>
 					<p>
@@ -673,10 +673,9 @@
 	<script src="js/main.js"></script>
 
 
-	<script>
-	// var d = new Date("2019-08-24 16:00:00 (GMT-5)")
-	var d = new Date("2019-08-24 16:00:00-05:00") //GMT-5
 
+	<script>
+	var d = new Date("Sat Aug 24 2019 17:00:00 GMT-5"); // ""Day Mon dd yyyy hh:mm:ss GMT/UTC  
 
 
     // var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
@@ -688,19 +687,20 @@
 		day: d.getDate(),
 		hours: d.getHours(),
 		minutes: d.getMinutes(),
-		seconds: d.getSeconds()
+		seconds: d.getSeconds(),
+		enableUtc: false
     });
 
-    //jQuery example
-    // $('#simply-countdown-losange').simplyCountdown({
-    //     year: d.getFullYear(),
-    //     month: d.getMonth() + 1,
-	// 	day: d.getDate(),
-	// 	hours: d.getHours(),
-	// 	minutes: d.getMinutes(),
-	// 	seconds: d.getSeconds(),
-    //     enableUtc: false
-	// });
+    // jQuery example
+    $('#simply-countdown-losange').simplyCountdown({
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+		day: d.getDate(),
+		hours: d.getHours(),
+		minutes: d.getMinutes(),
+		seconds: d.getSeconds(),
+        enableUtc: false
+	});
 
 
 	</script>
