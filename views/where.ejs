@@ -2,27 +2,32 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title><%= t('Michele & Rosa Wedding') %></title>
+	<title>
+		<%= t('Michele & Rosa Wedding') %>
+	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Michele Fattoruso and Rosa Rueda wedding" />
 	<meta name="keywords" content="Michele Fattoruso Rosa Rueda Wedding Barichara 2019 Colombia boda matrimonio" />
 	<meta name="author" content="Michele Fattoruso" />
 
 	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
-	
+
 
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
@@ -67,81 +72,103 @@
 
 	<meta name="google-site-verification" content="nFzXpIJMp_gOZTNzEh2MRRe52bLX66v6mgoFzL0vS_8" />
 
-	</head>
-	<body>
+</head>
+
+<body>
 
 	<div class="fh5co-loader"></div>
 
 	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="/"><strong></strong></a></div>
+		<nav class="fh5co-nav" role="navigation">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/"><strong></strong></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href="/">
+									<%= t('Home') %></a></li>
+							<li><a href="about">
+									<%= t('Story') %></a></li>
+							<li class="active"><a href="where">
+									<%= t('When & Where') %></a></li>
+							<li><a href="gallery">
+									<%= t('Gallery') %></a></li>
+							<li><a href="contact">
+									<%= t('Contact') %></a></li>
+						</ul>
+					</div>
 				</div>
-				<div class="col-xs-10 text-right menu-1">
-					<ul>
-						<li><a href="/"><%= t('Home') %></a></li>
-						<li><a href="about"><%= t('Story') %></a></li>
-						<li class="active"><a href="where"><%= t('When & Where') %></a></li>
-						<li><a href="gallery"><%= t('Gallery') %></a></li>
-						<li><a href="contact"><%= t('Contact') %></a></li>
-					</ul>
+
+			</div>
+		</nav>
+
+		<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/where_top.jpg);">
+			<div class="overlay"></div>
+			<div class="fh5co-container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="display-t">
+							<div class="display-tc animate-box" data-animate-effect="fadeIn">
+								<h1>
+									<%= t('When & Where') %>
+								</h1>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+		</header>
 
-		</div>
-    </nav>
-
-    <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/where_top.jpg);">
-		<div class="overlay"></div>
-		<div class="fh5co-container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t">
-						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-                            <h1><%= t('When & Where') %></h1>
+		<div id="fh5co-couple">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2>
+							<%= t('Hello!') %>
+						</h2>
+						<h3>
+							<%= t('August 24th, 2019 Barichara, Colombia') %>
+						</h3>
+						<p>
+							<%= t('We invited you to celebrate our wedding') %>
+						</p>
+					</div>
+				</div>
+				<div class="couple-wrap animate-box">
+					<div class="couple-half">
+						<div class="groom">
+							<img src="images/groom.jpg" alt="groom" class="img-responsive">
+						</div>
+						<div class="desc-groom">
+							<h3>
+								<%= t('Michele Fattoruso') %>
+							</h3>
+							<p style="text-align: justify;">
+								<%= t('I was born near Naples (Italy), city of the Real Pizza 😜. I’ve been beautifully raised by my family (Hi Mom, Hi Dad) with two loving brothers. I’ve always been a shy guy, until the moment I decided to leave my country and go find new adventures overseas. The idea was to get professional experience, instead what I found was the love of my life (see how beautiful it’s the girl in the picture on my right).') %>
+							</p>
+						</div>
+					</div>
+					<p class="heart text-center"><i class="icon-heart2"></i></p>
+					<div class="couple-half">
+						<div class="bride">
+							<img src="images/bride.jpg" alt="groom" class="img-responsive">
+						</div>
+						<div class="desc-bride">
+							<h3>
+								<%= t('Rosa Rueda') %>
+							</h3>
+							<p style="text-align: justify;">
+								<%= t('I am from Barichara (Colombia). I traveled many countries around the world, some for passion and other for work. I have lived in Canada for my PhD studies, London and then Chicago for work. The latest is where I met this funny and cute Italian, right after coming back from my first trip to Italy ( Destiny right? ). Since then he\'s been the other half of the whole myself. 🙂.') %>
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-    </header>
 
-    <div id="fh5co-couple">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-                        <h2><%= t('Hello!') %></h2>
-                        <h3><%= t('August 24th, 2019 Barichara, Colombia') %></h3>
-                        <p><%= t('We invited you to celebrate our wedding') %></p>
-                    </div>
-                </div>
-                <div class="couple-wrap animate-box">
-                    <div class="couple-half">
-                        <div class="groom">
-                            <img src="images/groom.jpg" alt="groom" class="img-responsive">
-                        </div>
-                        <div class="desc-groom">
-                            <h3><%= t('Michele Fattoruso') %></h3>
-                            <p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove') %></p>
-                        </div>
-                    </div>
-                    <p class="heart text-center"><i class="icon-heart2"></i></p>
-                    <div class="couple-half">
-                        <div class="bride">
-                            <img src="images/bride.jpg" alt="groom" class="img-responsive">
-                        </div>
-                        <div class="desc-bride">
-                            <h3><%= t('Rosa Rueda') %></h3>
-                            <p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove') %></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    <!-- <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/church.jpg);">
+		<!-- <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/church.jpg);">
 		<div class="overlay"></div>
 		<div class="fh5co-container">
 			<div class="row">
@@ -156,52 +183,73 @@
 		</div>
 	</header> -->
 
-	<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/img_bg_3.jpg);">
-	<!-- <div id="fh5co-event" class="fh5co-bg" > -->
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<span><%= t('Our Special Events') %></span>
-					<h2><%= t('Wedding Events') %></h2>
+		<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/church.jpg);">
+			<!-- <div id="fh5co-event" class="fh5co-bg" > -->
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<span>
+							<%= t('Our Special Events') %></span>
+						<h2>
+							<%= t('Wedding Events') %>
+						</h2>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="display-t">
-					<div class="display-tc">
-						<div class="col-md-10 col-md-offset-1">
-							<div class="col-md-6 col-sm-6 text-center">
-								<div class="event-wrap animate-box">
-									<h3><%= t('Main Ceremony') %></h3>
-									<div class="event-col">
-										<i class="icon-clock"></i>
-										<span>4:00 PM</span>
-										<span>5:00 PM</span>
+				<div class="row">
+					<div class="display-t">
+						<div class="display-tc">
+							<div class="col-md-10 col-md-offset-1">
+								<div class="col-md-6 col-sm-6 text-center">
+									<div class="event-wrap animate-box">
+										<h3>
+											<%= t('Main Ceremony') %>
+										</h3>
+										<div class="event-col">
+											<i class="icon-clock"></i>
+											<span>4:00 PM</span>
+											<span>5:00 PM</span>
+										</div>
+										<div class="event-col">
+											<i class="icon-calendar"></i>
+											<span>
+												<%= t('Saturday 24') %></span>
+											<span>
+												<%= t('August, 2019') %></span>
+										</div>
+										<p>
+											<%= t('Where: Cathedral of the Immaculate Conception, Barichara’s main square.') %>
+										</p>
+										<p>
+											<%= t('This cathedral is an 18th-century sandstone church with a golden-leaf altar. It is the most prominent structure in Barichara. We could have not found a more beautiful church to celebrate our wedding!') %>
+										</p>
 									</div>
-									<div class="event-col">
-										<i class="icon-calendar"></i>
-										<span><%= t('Saturday 24') %></span>
-										<span><%= t('August, 2019') %></span>
-									</div>
-                                    <p><%= t('Where: Cathedral of the Immaculate Conception, Barichara’s main square.') %></p>
-									<p><%= t('This cathedral is an 18th-century sandstone church with a golden-leaf altar. It is the most prominent structure in Barichara. We could have not found a more beautiful church to celebrate our wedding!') %></p>
 								</div>
-							</div>
-							<div class="col-md-6 col-sm-6 text-center">
-								<div class="event-wrap animate-box">
-									<h3><%= t('Wedding Party') %></h3>
-									<div class="event-col">
-										<i class="icon-clock"></i>
-										<span>7:00 PM</span>
-										<span>1:00 AM</span>
+								<div class="col-md-6 col-sm-6 text-center">
+									<div class="event-wrap animate-box">
+										<h3>
+											<%= t('Wedding Party') %>
+										</h3>
+										<div class="event-col">
+											<i class="icon-clock"></i>
+											<span>7:00 PM</span>
+											<span>1:00 AM</span>
+										</div>
+										<div class="event-col">
+											<i class="icon-calendar"></i>
+											<span>
+												<%= t('Saturday 24') %></span>
+											<span>
+												<%= t('August, 2019') %></span>
+										</div>
+										<p>
+											<%= t('Where: Tamarindo Hotel') %><br>
+											<%= t('Barichara Calle 4 # 2-26.') %>
+										</p>
+										<p>
+											<%= t('Tamarindo is a small hotel with Spanish colonial architecture and is located just a couple of streets away from the Cathedral. You will have some time to hang out around the town before the party gets started!') %>
+										</p>
 									</div>
-									<div class="event-col">
-										<i class="icon-calendar"></i>
-										<span><%= t('Saturday 24') %></span>
-										<span><%= t('August, 2019') %></span>
-									</div>
-									<p><%= t('Where: Tamarindo Hotel') %><br><%= t('Barichara Calle 4 # 2-26.') %></p>
-									<p><%= t('Tamarindo is a small hotel with Spanish colonial architecture and is located just a couple of streets away from the Cathedral. You will have some time to hang out around the town before the party gets started!') %></p>
 								</div>
 							</div>
 						</div>
@@ -209,95 +257,107 @@
 				</div>
 			</div>
 		</div>
-    </div>
 
-    <div id="map" class="fh5co-map"></div>
+		<div id="map" class="fh5co-map"></div>
 
-    
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2><%= t('Are You Attending?') %></h2>
-					<p><%= t('Please Fill-up the form to notify you that you are attending. Thanks.') %></p>
+
+		<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/heart-cloud-sky.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>
+							<%= t('Are You Attending?') %>
+						</h2>
+						<p>
+							<%= t('Please Fill-up the form to notify you that you are attending. Thanks.') %>
+						</p>
+					</div>
 				</div>
-			</div>
-			<div class="row animate-box">
-				<div class="col-md-10 col-md-offset-1">
-					<form class="form-inline" role="form">
-						<!--<form action="http://localhost:3000/addAttendant" method="post" class="form-inline">-->
-						<div class="col-md-6 col-sm-6">
-							<div class="form-group">
-								<label for="name" class="sr-only">Name</label>
-								<input type="name" class="form-control" id="name" name="name" placeholder="<%= t('Name') %>" required>
+				<div class="row animate-box">
+					<div class="col-md-10 col-md-offset-1">
+						<form class="form-inline" role="form">
+							<!--<form action="http://localhost:3000/addAttendant" method="post" class="form-inline">-->
+							<div class="col-md-6 col-sm-6">
+								<div class="form-group">
+									<label for="name" class="sr-only">Name</label>
+									<input type="name" class="form-control" id="name" name="name" placeholder="<%= t('Name') %>" required>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<div class="form-group">
-								<label for="email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required>
+							<div class="col-md-6 col-sm-6">
+								<div class="form-group">
+									<label for="email" class="sr-only">Email</label>
+									<input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="participants" class="sr-only">Number</label>
-								<input type="number" class="form-control" id="numberAdults" placeholder="<%= t('Number of Adults') %>" min="0" required>
+							<div class="col-md-4 col-sm-4">
+								<div class="form-group">
+									<label for="participants" class="sr-only">Number</label>
+									<input type="number" class="form-control" id="numberAdults" placeholder="<%= t('Number of Adults') %>" min="0" required>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="participants" class="sr-only">Number</label>
-								<input type="number" class="form-control" id="numberChildren" placeholder="<%= t('Number of Children') %>" min="0" required>
+							<div class="col-md-4 col-sm-4">
+								<div class="form-group">
+									<label for="participants" class="sr-only">Number</label>
+									<input type="number" class="form-control" id="numberChildren" placeholder="<%= t('Number of Children') %>" min="0" required>
+								</div>
 							</div>
-						</div>
-						
-						<div class="col-md-4 col-sm-4">
-							<div class="input-group form-group">
-								<!-- <label for="evLocation" class="sr-only">Event Location</label> -->
-								<select name="evLocation" id="evLocation" class="form-control"  style="border-radius: 4px;" required>
-									<option value="" disabled selected style="display: none;"><%= t('Event Location') %></option>
-									<option value="Colombia"><%= t('Colombia') %></option>
-									<option value="Italy"><%= t('Italy') %></option>
-									<!-- <option value="Colombia,Italy">Both</option> -->
-								</select>
-								<!-- <input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required> -->
+
+							<div class="col-md-4 col-sm-4">
+								<div class="input-group form-group">
+									<!-- <label for="evLocation" class="sr-only">Event Location</label> -->
+									<select name="evLocation" id="evLocation" class="form-control" style="border-radius: 4px;" required>
+										<option value="" disabled selected style="display: none;">
+											<%= t('Event Location') %>
+										</option>
+										<option value="Colombia">
+											<%= t('Colombia') %>
+										</option>
+										<option value="Italy">
+											<%= t('Italy') %>
+										</option>
+										<!-- <option value="Colombia,Italy">Both</option> -->
+									</select>
+									<!-- <input type="email" class="form-control" id="email" placeholder="<%= t('Email') %>" required> -->
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<button type="submit" id="submitAttending" class="btn btn-default btn-block"><%= t('I am Attending') %></button>
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<button type="submit" id="submitNotAttending" class="btn btn-default btn-block"><%= t('I am not Attending') %></button>
-						</div>
-					</form>
+							<div class="col-md-6 col-sm-6">
+								<button type="submit" id="submitAttending" class="btn btn-default btn-block">
+									<%= t('I am Attending') %></button>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<button type="submit" id="submitNotAttending" class="btn btn-default btn-block">
+									<%= t('I am not Attending') %></button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<footer id="fh5co-footer" role="contentinfo">
-		<div class="container">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="container">
 
-			<div class="row copyright">
-				<div class="col-md-12 text-center">
-					<p>
-						<!-- <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> -->
-						<small class="block">Developed by <a href="https://www.linkedin.com/in/michele-fattoruso/" target="_blank">Michele Fattoruso</a></small>
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="https://twitter.com/Mik_Fattoruso"><i class="icon-twitter"></i></a></li>
-							<li><a href="https://www.facebook.com/michele.fattoruso"><i class="icon-facebook"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/michele-fattoruso/"><i class="icon-linkedin"></i></a></li>
-							<!-- <li><a href="#"><i class="icon-dribbble"></i></a></li> -->
-						</ul>
-					</p>
+				<div class="row copyright">
+					<div class="col-md-12 text-center">
+						<p>
+							<!-- <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> -->
+							<small class="block">Developed by <a href="https://www.linkedin.com/in/michele-fattoruso/" target="_blank">Michele
+									Fattoruso</a></small>
+						</p>
+						<p>
+							<ul class="fh5co-social-icons">
+								<li><a href="https://twitter.com/Mik_Fattoruso"><i class="icon-twitter"></i></a></li>
+								<li><a href="https://www.facebook.com/michele.fattoruso"><i class="icon-facebook"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/michele-fattoruso/"><i class="icon-linkedin"></i></a></li>
+								<!-- <li><a href="#"><i class="icon-dribbble"></i></a></li> -->
+							</ul>
+						</p>
+					</div>
 				</div>
-			</div>
 
-		</div>
-	</footer>
+			</div>
+		</footer>
 	</div>
 
 	<div class="gototop js-top">
@@ -306,7 +366,7 @@
 
 
 	<!-- Ajax post request to send the participation informations-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
 	<script src="js/requestParticipation.js"></script>
 
 	<!-- jQuery -->
@@ -331,8 +391,8 @@
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.js"></script>
-    <script src="js/magnific-popup-options.js"></script>
-    <!-- Google Map -->
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Google Map -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=<%= MAPS_API %>"></script>
 	<script src="js/google_map.js"></script>
 
@@ -340,6 +400,7 @@
 	<script src="js/simplyCountdown.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-	
-	</body>
+
+</body>
+
 </html>
