@@ -146,6 +146,20 @@
 		owl.owlCarousel({
 			items: 1,
 			loop: true,
+			margin: 200,
+			responsiveClass: true,
+			nav: false,
+			dots: true,
+			smartSpeed: 800,
+			autoHeight: true,
+		});
+	};
+
+	var owlCarousel = function(){
+		var owl = $('.owl-carousel');
+		owl.owlCarousel({
+			items: 1,
+			loop: false,
 			margin: 0,
 			responsiveClass: true,
 			nav: false,
@@ -221,6 +235,7 @@
 		burgerMenu();
 		contentWayPoint();
 		dropdown();
+		owlCarousel();
 		testimonialCarousel();
 		goToTop();
 		loaderPage();

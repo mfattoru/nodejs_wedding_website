@@ -176,6 +176,12 @@ app.get('/about', function (req, res, next) {
     res.render('about');
 });
 
+app.get('/locations', function (req, res, next) {
+    res.render('locations', {
+        MAPS_API: process.env.MAPS_API
+    });
+});
+
 app.get('/contact', function (req, res, next) {
     res.render('contact', {
         MAPS_API: process.env.MAPS_API

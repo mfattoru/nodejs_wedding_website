@@ -87,16 +87,12 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li><a href="/">
-									<%= t('Home') %></a></li>
-							<li><a href="about">
-									<%= t('Story') %></a></li>
-							<li class="active"><a href="where">
-									<%= t('When & Where') %></a></li>
-							<li><a href="gallery">
-									<%= t('Gallery') %></a></li>
-							<li><a href="contact">
-									<%= t('Contact') %></a></li>
+							<li><a href="/"><%= t('Home') %></a></li>
+							<li><a href="about"><%= t('Story') %></a></li>
+							<li class="active"><a href="where"><%= t('When & Where') %></a></li>
+							<li><a href="locations"><%= t('Locations') %></a></li>
+							<li><a href="gallery"><%= t('Gallery') %></a></li>
+							<li><a href="contact"><%= t('Contact') %></a></li>
 						</ul>
 					</div>
 				</div>
@@ -131,38 +127,12 @@
 						<h3>
 							<%= t('August 24th, 2019 Barichara, Colombia') %>
 						</h3>
+						<h3>
+							<%= t('August 30th, 2019 Lettere, Italy') %>
+						</h3>
 						<p>
-							<%= t('We invited you to celebrate our wedding') %>
+							<%= t('We know that our family and friends want to be part of our big day, and it would have not been possible for everyone to travel overseas. For this reason, we have organized two celebrations in our respective hometowns in Colombia and Italy. If you are interested in joining both parties, make sure you let us know by RSVP\'ing for both events.') %>
 						</p>
-					</div>
-				</div>
-				<div class="couple-wrap animate-box">
-					<div class="couple-half">
-						<div class="groom">
-							<img src="images/groom.jpg" alt="groom" class="img-responsive">
-						</div>
-						<div class="desc-groom">
-							<h3>
-								<%= t('Michele Fattoruso') %>
-							</h3>
-							<p style="text-align: justify;">
-								<%= t('I was born near Naples (Italy), city of the Real Pizza 😜. I’ve been beautifully raised by my family (Hi Mom, Hi Dad) with two loving brothers. I’ve always been a shy guy, until the moment I decided to leave my country and go find new adventures overseas. The idea was to get professional experience, instead what I found was the love of my life (see how beautiful it’s the girl in the picture on my right).') %>
-							</p>
-						</div>
-					</div>
-					<p class="heart text-center"><i class="icon-heart2"></i></p>
-					<div class="couple-half">
-						<div class="bride">
-							<img src="images/bride.jpg" alt="groom" class="img-responsive">
-						</div>
-						<div class="desc-bride">
-							<h3>
-								<%= t('Rosa Rueda') %>
-							</h3>
-							<p style="text-align: justify;">
-								<%= t('I am from Barichara (Colombia). I traveled many countries around the world, some for passion and other for work. I have lived in Canada for my PhD studies, London and then Chicago for work. The latest is where I met this funny and cute Italian, right after coming back from my first trip to Italy ( Destiny right? ). Since then he\'s been the other half of the whole myself. 🙂.') %>
-							</p>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -183,80 +153,100 @@
 		</div>
 	</header> -->
 
-		<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/church.jpg);">
-			<!-- <div id="fh5co-event" class="fh5co-bg" > -->
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-						<span>
-							<%= t('Our Special Events') %></span>
-						<h2>
-							<%= t('Wedding Events') %>
-						</h2>
-					</div>
+	<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/church.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<span><%= t('Our Special Events') %></span>
+					<h2><%= t('Colombia and Italy Events') %></h2>
 				</div>
-				<div class="row">
-					<div class="display-t">
-						<div class="display-tc">
-							<div class="col-md-10 col-md-offset-1">
-								<div class="col-md-6 col-sm-6 text-center">
-									<div class="event-wrap animate-box">
-										<h3>
-											<%= t('Main Ceremony') %>
-										</h3>
-										<div class="event-col">
-											<i class="icon-clock"></i>
-											<span>4:00 PM</span>
-											<span>5:00 PM</span>
-										</div>
-										<div class="event-col">
-											<i class="icon-calendar"></i>
-											<span>
-												<%= t('Saturday 24') %></span>
-											<span>
-												<%= t('August, 2019') %></span>
-										</div>
-										<p>
-											<%= t('Where: Cathedral of the Immaculate Conception, Barichara’s main square.') %>
-										</p>
-										<p>
-											<%= t('This cathedral is an 18th-century sandstone church with a golden-leaf altar. It is the most prominent structure in Barichara. We could have not found a more beautiful church to celebrate our wedding!') %>
-										</p>
-									</div>
+			</div>
+			<div class="row">
+				<div class="owl-carousel">
+					<!-- <div class="display-tc"> -->
+					<div class="item col-md-10 col-md-offset-1">
+						<div class="col-md-6 col-sm-6 text-center">
+							<div class="event-wrap animate-box">
+								<h3><%= t('Colombia Main Ceremony') %></h3>
+								<div class="event-col">
+									<i class="icon-clock"></i>
+									<span>4:00 PM</span>
+									<span>5:00 PM</span>
 								</div>
-								<div class="col-md-6 col-sm-6 text-center">
-									<div class="event-wrap animate-box">
-										<h3>
-											<%= t('Wedding Party') %>
-										</h3>
-										<div class="event-col">
-											<i class="icon-clock"></i>
-											<span>7:00 PM</span>
-											<span>1:00 AM</span>
-										</div>
-										<div class="event-col">
-											<i class="icon-calendar"></i>
-											<span>
-												<%= t('Saturday 24') %></span>
-											<span>
-												<%= t('August, 2019') %></span>
-										</div>
-										<p>
-											<%= t('Where: Tamarindo Hotel') %><br>
-											<%= t('Barichara Calle 4 # 2-26.') %>
-										</p>
-										<p>
-											<%= t('Tamarindo is a small hotel with Spanish colonial architecture and is located just a couple of streets away from the Cathedral. You will have some time to hang out around the town before the party gets started!') %>
-										</p>
-									</div>
+								<div class="event-col">
+									<i class="icon-calendar"></i>
+									<span><%= t('Saturday 24') %></span>
+									<span><%= t('August, 2019') %></span>
 								</div>
+								<p><%= t('Where: Cathedral of the Immaculate Conception, Barichara’s main square.') %></p>
+								<p><%= t('This cathedral is an 18th-century sandstone church with a golden-leaf altar. \
+									It is the most prominent structure in Barichara. We could have not found a more beautiful \
+									church to celebrate our wedding!') %></p>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 text-center">
+							<div class="event-wrap animate-box">
+								<h3><%= t('Colombia Wedding Party') %></h3>
+								<div class="event-col">
+									<i class="icon-clock"></i>
+									<span>7:00 PM</span>
+									<span>1:00 AM</span>
+								</div>
+								<div class="event-col">
+									<i class="icon-calendar"></i>
+									<span><%= t('Saturday 24') %></span>
+									<span><%= t('August, 2019') %></span>
+								</div>
+								<p><%= t('Where: Tamarindo Hotel') %><br><%= t('Barichara Calle 4 # 2-26.') %></p>
+								<p><%= t('Tamarindo is a small hotel with Spanish colonial architecture and is located just a couple \
+									of streets away from the Cathedral. You will have some time to hang out around the town before the \
+									party gets started!') %></p>
+							</div>
+						</div>
+					</div>
+					<div class="item col-md-10 col-md-offset-1">
+						<div class="col-md-6 col-sm-6 text-center">
+							<div class="event-wrap animate-box">
+								<h3><%= t('Italy Main Ceremony') %></h3>
+								<div class="event-col">
+									<i class="icon-clock"></i>
+									<span>4:00 PM</span>
+									<span>5:00 PM</span>
+								</div>
+								<div class="event-col">
+									<i class="icon-calendar"></i>
+									<span><%= t('Friday 30') %></span>
+									<span><%= t('August, 2019') %></span>
+								</div>
+								<p><%= t('Where: Saint Nicola\'s church') %><br><%= t('Via San Nicola del Vaglio, 80050 Lettere NA, Italy') %></p>
+								<p><%= t('This cathedral is an 18th-century sandstone church with a golden-leaf altar. It is the most prominent structure in Barichara. We could have not found a more beautiful church to celebrate our wedding!') %></p>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 text-center">
+							<div class="event-wrap animate-box">
+								<h3><%= t('Italy Wedding Party') %></h3>
+								<div class="event-col">
+									<i class="icon-clock"></i>
+									<span>7:00 PM</span>
+									<span>1:00 AM</span>
+								</div>
+								<div class="event-col">
+									<i class="icon-calendar"></i>
+									<span><%= t('Friday 30') %></span>
+									<span><%= t('August, 2019') %></span>
+								</div>
+								<p><%= t('Where: La Canonica') %><br><%= t('Via S. Lorenzo, 20, 80050 Lettere NA, Italy.') %></p>
+								<p><%= t('La Canonica, immersed in the green of a hill overlooking the splendid Gulf of Naples, \
+									is a splendid and refined location for receptions that offers a careful and refined cuisine \
+									as well as a service based on cordiality and courtesy.') %></p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
 		<div id="map" class="fh5co-map"></div>
 

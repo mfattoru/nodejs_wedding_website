@@ -14,7 +14,7 @@
 	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Michele Fattoruso and Rosa Rueda wedding" />
-	<meta name="keywords" content="Michele Fattoruso Rosa Rueda Wedding Barichara 2019 Colombia" />
+	<meta name="keywords" content="Michele Fattoruso Rosa Rueda Wedding Barichara 2019 Colombia boda matrimonio" />
 	<meta name="author" content="Michele Fattoruso" />
 
 	<!-- Facebook and Twitter integration -->
@@ -28,10 +28,19 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
+
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 	<link rel="shortcut icon" href="images/heart.png">
 
+	<!-- Load the i18n translation module on the local client -->
+	<!-- <script src="https://unpkg.com/i18next/i18next.js"></script>
+	<script src="https://unpkg.com/i18next-xhr-backend/i18nextXHRBackend.js"></script>
+	<script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.js"></script>
+	<script src="js/i18next-client.js"></script> -->
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -39,6 +48,8 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
+	<!-- Dinamically create the gallery -->
+	<!-- <script src="js/queryGallery.js"></script> -->
 	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="css/magnific-popup.css">
 
@@ -59,6 +70,8 @@
 	<script src="js/sweetalert2.min.js"></script>
 	<link rel="stylesheet" href="css/sweetalert2.min.css">
 
+	<meta name="google-site-verification" content="nFzXpIJMp_gOZTNzEh2MRRe52bLX66v6mgoFzL0vS_8" />
+
 </head>
 
 <body>
@@ -75,17 +88,10 @@
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
 							<li><a href="/"><%= t('Home') %></a></li>
-							<li class="active"><a href="about"><%= t('Story') %></a></li>
+							<li><a href="about"><%= t('Story') %></a></li>
 							<li><a href="where"><%= t('When & Where') %></a></li>
-							<li><a href="locations"><%= t('Locations') %></a></li>
+                            <li class="active"><a href="locations"><%= t('Locations') %></a></li>
 							<li><a href="gallery"><%= t('Gallery') %></a></li>
-							<!-- <ul class="dropdown">
-								<li><a href="#">HTML5</a></li>
-								<li><a href="#">CSS3</a></li>
-								<li><a href="#">Sass</a></li>
-								<li><a href="#">jQuery</a></li>
-							</ul> -->
-							<!-- </li> -->
 							<li><a href="contact"><%= t('Contact') %></a></li>
 						</ul>
 					</div>
@@ -94,7 +100,7 @@
 			</div>
 		</nav>
 
-		<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/about_background.jpg);">
+		<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/where_top.jpg);">
 			<div class="overlay"></div>
 			<div class="fh5co-container">
 				<div class="row">
@@ -102,7 +108,7 @@
 						<div class="display-t">
 							<div class="display-tc animate-box" data-animate-effect="fadeIn">
 								<h1>
-									<%= t('About Us') %>
+									<%= t('Where to Stay') %>
 								</h1>
 							</div>
 						</div>
@@ -111,56 +117,17 @@
 			</div>
 		</header>
 
-		<!-- <div id="fh5co-couple" class="fh5co-section-gray">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2><%= t('Hello!') %></h2>
-					<h3><%= t('August 24, 2019 Barichara, Colombia') %></h3>
-					<p><%= t('We invited you to celebrate our wedding') %></p>
-				</div>
-			</div>
-			<div class="couple-wrap animate-box">
-				<div class="couple-half">
-					<div class="groom">
-						<img src="images/groom.jpg" alt="groom" class="img-responsive">
-					</div>
-					<div class="desc-groom">
-						<h3><%= t('Michele Fattoruso') %></h3>
-						<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove') %></p>
-					</div>
-				</div>
-				<p class="heart text-center"><i class="icon-heart2"></i></p>
-				<div class="couple-half">
-					<div class="bride">
-						<img src="images/bride.jpg" alt="groom" class="img-responsive">
-					</div>
-					<div class="desc-bride">
-						<h3><%= t('Rosa Rueda') %></h3>
-						<p><%= t('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove') %></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
 		<div id="fh5co-couple-story">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 						<span>
-							<%= t('We Love Each Other') %></span>
+							<%= t('Hotels') %></span>
 						<h2>
-							<%= t('Our Story') %>
+							<%= t('List of Hotels') %>
 						</h2>
 						<p style="white-space: pre-line">
-							<%= t(`I love you without knowing how, or when, or from where.
-						I love you straightforwardly, without complexities or pride;
-						so I love you because I know no other way than this:
-						where I does not exist, nor you,
-						so close that your hand on my chest is my hand,
-						so close that your eyes close as I fall asleep.\n
-							• Pablo Neruda, Sonnet XVII`) %>
+							<%= t(`Reccomended Hotels where to stay`) %>
 						</p>
 					</div>
 				</div>
@@ -172,20 +139,14 @@
 								<div class="timeline-panel">
 									<div class="timeline-heading">
 										<h3 class="timeline-title">
-											<%= t('When We First Met') %>
+											<%= t('Hotel 1') %>
 										</h3>
 										<span class="date">
-											<%= t('October 15, 2016') %></span>
+											<%= t('Address 1') %></span>
 									</div>
 									<div class="timeline-body">
 										<p>
-											<%= t('It might sound cheesy, but it was destiny that brought them together. \
-										Rosa had just returned from a trip to Italy, when some friends, who she had \
-										randomly met over a year ago at a friend’s birthday party, invited her to their \
-										house that they happened to share with Michele. That day when they first met, they \
-										immediately found a lot of things to talk about, one of which was his very unsuccessful \
-										search for someone to enjoy a dinner plan at Alinea - a famous restaurant in Chicago. \
-										This plan was in Rosa\’s bucket list, so without further thought they decided to plan to go together.') %>
+											<%= t('Description 1') %>
 										</p>
 									</div>
 								</div>
@@ -195,59 +156,14 @@
 								<div class="timeline-panel">
 									<div class="timeline-heading">
 										<h3 class="timeline-title">
-											<%= t('First Date... not Date') %>
+											<%= t('Hotel 2') %>
 										</h3>
 										<span class="date">
-											<%= t('January 21, 2017') %></span>
+											<%= t('Address 2') %></span>
 									</div>
 									<div class="timeline-body">
 										<p>
-											<%= t('They were hanging out for a couple of months, together with friends, until their \
-										Reservation at Alinea finally arrived (it took literally months of waiting). This was \
-										their first time going out just the two of them, and he thought this could be a good \
-										occasion to put his feelings in words… which just didn\’t happen due to some unexpected \
-										complications (love is hard!)') %>
-										</p>
-									</div>
-								</div>
-							</li>
-							<li class="animate-box">
-								<div class="timeline-badge" style="background-image:url(images/relationship.jpg);"></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">
-											<%= t('In A Relationship') %>
-										</h3>
-										<span class="date">
-											<%= t('January 29, 2017') %></span>
-									</div>
-									<div class="timeline-body">
-										<p>
-											<%= t('A few days later, they had another activity with friends, fondue and raclette night! \
-										Michele offered to give Rosa a ride back to her place with the idea of not delaying anymore \
-										what he had to say. He put together some sentences which kind of made sense, and then blushed \
-										like a red pepper. Well, this is how it all started!') %>
-										</p>
-									</div>
-								</div>
-							</li>
-							<li class="timeline-inverted animate-box">
-								<div class="timeline-badge" style="background-image:url(images/engaged.jpg);"></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">
-											<%= t('Engaged') %>
-										</h3>
-										<span class="date">
-											<%= t('August 13, 2018') %></span>
-									</div>
-									<div class="timeline-body">
-										<p>
-											<%= t('After some time in the relationship, Michele decided that it was time for his family, \
-										living in Italy, to meet Rosa. Nothing she knew that he was traveling with a sparkling gift \
-										for her. The plan was carefully designed, and despite the summer heat and the sea sickness, \
-										once they entered in the Blue Grotto, he opened his perfectly hidden box, and said the fateful \
-										words, which were replied by a lovely yes!') %>
+											<%= t('Description 2') %>
 										</p>
 									</div>
 								</div>
@@ -257,6 +173,119 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/church.jpg);">
+		<div class="overlay"></div>
+		<div class="fh5co-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1><%= t('When & Where') %></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header> -->
+
+	<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/church.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<span><%= t('Our Special Events') %></span>
+					<h2><%= t('Colombia and Italy Events') %></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="owl-carousel">
+					<!-- <div class="display-tc"> -->
+					<div class="item col-md-10 col-md-offset-1">
+						<div class="col-md-6 col-sm-6 text-center">
+							<div class="event-wrap animate-box">
+								<h3><%= t('Colombia Main Ceremony') %></h3>
+								<div class="event-col">
+									<i class="icon-clock"></i>
+									<span>4:00 PM</span>
+									<span>5:00 PM</span>
+								</div>
+								<div class="event-col">
+									<i class="icon-calendar"></i>
+									<span><%= t('Saturday 24') %></span>
+									<span><%= t('August, 2019') %></span>
+								</div>
+								<p><%= t('Where: Cathedral of the Immaculate Conception, Barichara’s main square.') %></p>
+								<p><%= t('This cathedral is an 18th-century sandstone church with a golden-leaf altar. \
+									It is the most prominent structure in Barichara. We could have not found a more beautiful \
+									church to celebrate our wedding!') %></p>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 text-center">
+							<div class="event-wrap animate-box">
+								<h3><%= t('Colombia Wedding Party') %></h3>
+								<div class="event-col">
+									<i class="icon-clock"></i>
+									<span>7:00 PM</span>
+									<span>1:00 AM</span>
+								</div>
+								<div class="event-col">
+									<i class="icon-calendar"></i>
+									<span><%= t('Saturday 24') %></span>
+									<span><%= t('August, 2019') %></span>
+								</div>
+								<p><%= t('Where: Tamarindo Hotel') %><br><%= t('Barichara Calle 4 # 2-26.') %></p>
+								<p><%= t('Tamarindo is a small hotel with Spanish colonial architecture and is located just a couple \
+									of streets away from the Cathedral. You will have some time to hang out around the town before the \
+									party gets started!') %></p>
+							</div>
+						</div>
+					</div>
+					<div class="item col-md-10 col-md-offset-1">
+						<div class="col-md-6 col-sm-6 text-center">
+							<div class="event-wrap animate-box">
+								<h3><%= t('Italy Main Ceremony') %></h3>
+								<div class="event-col">
+									<i class="icon-clock"></i>
+									<span>4:00 PM</span>
+									<span>5:00 PM</span>
+								</div>
+								<div class="event-col">
+									<i class="icon-calendar"></i>
+									<span><%= t('Friday 30') %></span>
+									<span><%= t('August, 2019') %></span>
+								</div>
+								<p><%= t('Where: Saint Nicola\'s church') %><br><%= t('Via San Nicola del Vaglio, 80050 Lettere NA, Italy') %></p>
+								<p><%= t('This cathedral is an 18th-century sandstone church with a golden-leaf altar. It is the most prominent structure in Barichara. We could have not found a more beautiful church to celebrate our wedding!') %></p>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 text-center">
+							<div class="event-wrap animate-box">
+								<h3><%= t('Italy Wedding Party') %></h3>
+								<div class="event-col">
+									<i class="icon-clock"></i>
+									<span>7:00 PM</span>
+									<span>1:00 AM</span>
+								</div>
+								<div class="event-col">
+									<i class="icon-calendar"></i>
+									<span><%= t('Friday 30') %></span>
+									<span><%= t('August, 2019') %></span>
+								</div>
+								<p><%= t('Where: La Canonica') %><br><%= t('Via S. Lorenzo, 20, 80050 Lettere NA, Italy.') %></p>
+								<p><%= t('La Canonica, immersed in the green of a hill overlooking the splendid Gulf of Naples, \
+									is a splendid and refined location for receptions that offers a careful and refined cuisine \
+									as well as a service based on cordiality and courtesy.') %></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<div id="map" class="fh5co-map"></div>
+
 
 		<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/heart-cloud-sky.jpg);">
 			<div class="overlay"></div>
@@ -361,12 +390,15 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
 
+
 	<!-- Ajax post request to send the participation informations-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
 	<script src="js/requestParticipation.js"></script>
 
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+	<!-- <script src="js/jquery.min.js"></script> -->
+	<!-- Dinamically create the gallery -->
+	<!-- <script src="js/queryGallery.js"></script> -->
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
@@ -378,12 +410,20 @@
 	<!-- countTo -->
 	<script src="js/jquery.countTo.js"></script>
 
+
+	<!-- Dinamically create the gallery -->
+	<!-- <script src="js/queryGallery.js"></script> -->
 	<!-- Stellar -->
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
+	<!-- Google Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=<%= MAPS_API %>"></script>
+	<script src="js/google_map.js"></script>
 
+	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
+	<script src="js/simplyCountdown.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
