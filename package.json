@@ -18,7 +18,7 @@
     "express": "^4.16.4",
     "forever": "^0.15.3",
     "i18n-2": "^0.7.3",
-    "i18next": "^13.1.2",
+    "i18next": "^19.4.5",
     "i18next-express-middleware": "^1.7.1",
     "i18next-node-fs-backend": "^2.1.1",
     "i18next-xhr-backend": "^1.5.1",
